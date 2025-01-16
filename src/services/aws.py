@@ -26,8 +26,8 @@ environments = {
         }
     },
     'federal': {
-        'access_key': os.getenv('DOOP_AUTOMATION_AWS_ACCESS_KEY_ID'),
-        'secret_key': os.getenv('DOOP_AUTOMATION_AWS_SECRET_ACCESS_KEY'),
+        'access_key': os.getenv('FEDERAL_AUTOMATION_AWS_ACCESS_KEY_ID'),
+        'secret_key': os.getenv('FEDERA_AUTOMATION_AWS_SECRET_ACCESS_KEY'),
         'region': 'us-west-2',
         'output_files': {
             'functions': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_functions.json",
