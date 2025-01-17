@@ -1,17 +1,22 @@
-# Purpose: Provide Evidence for AWS Cloud**** Related Services.#
-################################################################
 import os
 import subprocess
 import datetime
 import json
 from credentials.aws import get_aws_credentials
 
-
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
 START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()
 END_DATE = datetime.datetime.utcnow().isoformat()
+
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable evidence collection for 'commercial'
+    'federal': False      # Set to False to disable evidence collection for 'federal'
+}
+
 
 # Environment configuration for AWS credentials and output paths
 environments = {
@@ -126,15 +131,20 @@ def fetch_cloudtrail_tags(config, output_file):
     with open(output_file, 'w') as f:
         json.dump(tags_data, f, indent=4)
 
-# Main function to execute each evidence collection task for both environments
+# Main function to execute each evidence collection task for enabled environments
 def main():
     for env_name, config in environments.items():
+        # Check if the environment is enabled
+        if not enable_environments.get(env_name, False):
+            print(f"Skipping environment '{env_name}' as it is disabled.")
+            continue
+
         # Fetch AWS credentials for the current environment
         aws_creds = get_aws_credentials(env_name)
         if not aws_creds:
             print(f"Skipping environment '{env_name}' due to credential issues.")
             continue
-        
+
         # Set AWS environment variables for subprocess commands
         os.environ['AWS_ACCESS_KEY_ID'] = aws_creds['access_key']
         os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
@@ -142,7 +152,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
         # Collect evidence for AWS CloudWatch configurations
         fetch_alarms(config, config['output_files']['alarms'])
@@ -157,7 +167,9 @@ def main():
         fetch_insights_selectors(config, config['output_files']['insights'])
         fetch_cloudtrail_tags(config, config['output_files']['tags'])
 
-    print("AWS CloudWatch and CloudTrail configuration evidence collection completed for both environments.")
+        print(f"Completed evidence collection for environment '{env_name}'.")
+
+    print("AWS CloudWatch and CloudTrail configuration evidence collection completed.")
 
 # Execute main function
 if __name__ == "__main__":
