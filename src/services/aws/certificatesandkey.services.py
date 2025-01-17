@@ -34,15 +34,15 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ACM Files
-            'certificates': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-acm_certificates.json",
-            'certificate_details': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-acm_certificate_details.json",
-            'tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-acm_tags.json",
-            'renewal_status': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-acm_renewal_status.json",
+            'certificates': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-acm_certificates.json",
+            'certificate_details': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-acm_certificate_details.json",
+            'tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-acm_tags.json",
+            'renewal_status': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-acm_renewal_status.json",
             # KMS Files
-            'keys': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-kms_keys.json",
-            'key_policies': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-kms_key_policies.json",
-            'grants': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-kms_grants.json",
-            'kms_tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-kms_tags.json"
+            'keys': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-kms_keys.json",
+            'key_policies': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-kms_key_policies.json",
+            'grants': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-kms_grants.json",
+            'kms_tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-kms_tags.json"
         }
     },
     'federal': {
@@ -150,6 +150,11 @@ def fetch_kms_tags(config, output_file):
 # Main function to execute each evidence collection task for both environments
 def main():
     for env_name, config in environments.items():
+        # Check if the environment is enabled
+        if not enable_environments.get(env_name, False):
+            print(f"Skipping environment '{env_name}' as it is disabled.")
+            continue
+
         # Fetch AWS credentials for the current environment
         aws_creds = get_aws_credentials(env_name)
         if not aws_creds:
