@@ -1,6 +1,8 @@
 name: Evidence Collection
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 28-31 * *'
 env:
   AWS_REGION : "us-east-1"
   CI_COMMIT_MESSAGE: AWS Evidence Collected
