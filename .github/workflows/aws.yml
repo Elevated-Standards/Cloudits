@@ -10,6 +10,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: arn:aws:iam::145023120730:role/elevated-standards
+        aws-region: us-east-1
 
     - name: Install dependencies
       run: |
