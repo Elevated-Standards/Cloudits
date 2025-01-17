@@ -6,7 +6,8 @@ env:
   CI_COMMIT_MESSAGE: AWS Evidence Collected
 permissions:
   id-token: write   
-  contents: read   
+  contents: write   
+  pull-requests: write  
 jobs:
   aws-evidence:
     runs-on: ubuntu-latest
