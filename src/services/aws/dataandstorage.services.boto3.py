@@ -3,7 +3,7 @@ import datetime
 import json
 import boto3
 from botocore.exceptions import ClientError
-from credentials.aws import get_aws_credentials
+from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
 
 # Define current year, month, and day for directory paths
 YEAR = datetime.datetime.now().year

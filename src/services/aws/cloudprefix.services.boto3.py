@@ -3,7 +3,7 @@ import datetime
 import json
 import boto3
 from botocore.exceptions import ClientError
-from credentials.aws import get_aws_credentials
+from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
 
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')

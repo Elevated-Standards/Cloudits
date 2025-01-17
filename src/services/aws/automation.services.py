@@ -5,7 +5,7 @@ import subprocess
 import datetime
 import json
 import sys
-from credentials.aws import get_aws_credentials
+from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
 
 
 # Ensure the 'src' directory is in the Python module search path
@@ -53,10 +53,7 @@ environments = {
     }
 }
 
-# Helper function to run AWS CLI commands
-def run_command(command):
-    result = subprocess.run(command, capture_output=True, text=True)
-    return json.loads(result.stdout)
+
 
 # Fetch all Lambda functions
 def fetch_lambda_functions(config, output_file):
@@ -110,10 +107,7 @@ def main():
         os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
         os.environ['AWS_DEFAULT_REGION'] = aws_creds['region']
 
-        # Ensure directories exist for output files
-        for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
+        ensure_directories_exist(config['output_files'].values())
 
         # Collect all Lambda functions and iterate through each
         functions = fetch_lambda_functions(config, config['output_files']['functions'])
