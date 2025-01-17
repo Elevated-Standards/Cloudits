@@ -1,0 +1,14 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "Cloudits",
+            "creationTime": 1737143938087,
+            "retentionInDays": 545,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:145023120730:log-group:Cloudits:*",
+            "storedBytes": 0,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:145023120730:log-group:Cloudits"
+        }
+    ]
+}
