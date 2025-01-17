@@ -29,15 +29,15 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # Change '{BASE_DIR}' to '{BASE_DIR}' (relative path)
-            'alarms': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_alarms.json",
-            'metrics': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_metrics.json",
-            'dashboards': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_dashboards.json",
-            'log_groups': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_log_groups.json",
-            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_tags.json",
-            'trails': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_trails.json",
-            'event_data_stores': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_event_data_stores.json",
-            'insights': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_insights.json",
-            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_tags.json"
+            'alarms': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_alarms.json",
+            'metrics': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_metrics.json",
+            'dashboards': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_dashboards.json",
+            'log_groups': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_log_groups.json",
+            'tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_tags.json",
+            'trails': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_trails.json",
+            'event_data_stores': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_event_data_stores.json",
+            'insights': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_insights.json",
+            'tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_tags.json"
         }
     },
     'federal': {

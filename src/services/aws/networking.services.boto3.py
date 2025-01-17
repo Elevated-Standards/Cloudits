@@ -15,11 +15,11 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'elbv2_load_balancers': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_load_balancers.json",
-            'elbv2_listeners': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listeners.json",
-            'elbv2_listener_rules': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listener_rules.json",
-            'elbv2_target_groups': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_target_groups.json",
-            'elbv2_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_tags.json",
+            'elbv2_load_balancers': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_load_balancers.json",
+            'elbv2_listeners': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listeners.json",
+            'elbv2_listener_rules': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listener_rules.json",
+            'elbv2_target_groups': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_target_groups.json",
+            'elbv2_tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_tags.json",
             'meshes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
             'virtual_services': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
             'virtual_routers': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_routers.json",
