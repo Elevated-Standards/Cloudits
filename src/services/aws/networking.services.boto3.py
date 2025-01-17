@@ -20,28 +20,28 @@ environments = {
             'elbv2_listener_rules': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-elbv2_listener_rules.json",
             'elbv2_target_groups': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-elbv2_target_groups.json",
             'elbv2_tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-elbv2_tags.json",
-            'meshes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{END_DATE}-appmesh_meshes.json",
-            'virtual_services': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_services.json",
-            'virtual_routers': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_routers.json",
-            'virtual_nodes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_nodes.json",
-            'virtual_gateways': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_gateways.json",
-            'routes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{END_DATE}-appmesh_routes.json"
+            'meshes': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_meshes.json",
+            'virtual_services': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_services.json",
+            'virtual_routers': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_routers.json",
+            'virtual_nodes': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_nodes.json",
+            'virtual_gateways': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_gateways.json",
+            'routes': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_routes.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            'elbv2_load_balancers': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-elbv2_load_balancers.json",
-            'elbv2_listeners': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-elbv2_listeners.json",
-            'elbv2_listener_rules': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-elbv2_listener_rules.json",
-            'elbv2_target_groups': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-elbv2_target_groups.json",
-            'elbv2_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-elbv2_tags.json",
-            'meshes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-appmesh_meshes.json",
-            'virtual_services': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_services.json",
-            'virtual_routers': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_routers.json",
-            'virtual_nodes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_nodes.json",
-            'virtual_gateways': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-appmesh_virtual_gateways.json",
-            'routes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-appmesh_routes.json"
+            'elbv2_load_balancers': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-elbv2_load_balancers.json",
+            'elbv2_listeners': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-elbv2_listeners.json",
+            'elbv2_listener_rules': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-elbv2_listener_rules.json",
+            'elbv2_target_groups': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-elbv2_target_groups.json",
+            'elbv2_tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-elbv2_tags.json",
+            'meshes': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_meshes.json",
+            'virtual_services': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_services.json",
+            'virtual_routers': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_routers.json",
+            'virtual_nodes': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_nodes.json",
+            'virtual_gateways': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_virtual_gateways.json",
+            'routes': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-appmesh_routes.json"
         }
     }
 }

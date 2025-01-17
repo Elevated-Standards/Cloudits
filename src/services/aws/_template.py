@@ -31,21 +31,21 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            '<Function1>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
-            '<Function2>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
-            '<Function3>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
-            '<Function4>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
-            '<Function5>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
+            '<Function1>': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
+            '<Function2>': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
+            '<Function3>': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
+            '<Function4>': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
+            '<Function5>': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            '<Function1>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
-            '<Function2>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
-            '<Function3>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
-            '<Function4>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
-            '<Function5>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
+            '<Function1>': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
+            '<Function2>': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
+            '<Function3>': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
+            '<Function4>': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
+            '<Function5>': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
         }
     }
 }

@@ -30,15 +30,15 @@ environments = {
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            'alarms': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudwatch_alarms.json",
-            'metrics': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudwatch_metrics.json",
-            'dashboards': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudwatch_dashboards.json",
-            'log_groups': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudwatch_log_groups.json",
-            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudwatch_tags.json",
-            'trails': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudtrail_trails.json",
-            'event_data_stores': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudtrail_event_data_stores.json",
-            'insights': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudtrail_insights.json",
-            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-cloudtrail_tags.json"
+            'alarms': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_alarms.json",
+            'metrics': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_metrics.json",
+            'dashboards': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_dashboards.json",
+            'log_groups': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_log_groups.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_tags.json",
+            'trails': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_trails.json",
+            'event_data_stores': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_event_data_stores.json",
+            'insights': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_insights.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_tags.json"
         }
     }
 }
