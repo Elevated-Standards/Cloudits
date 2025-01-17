@@ -36,38 +36,47 @@ environments = {
             'tasks': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tasks.json",
             'task_definitions': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_task_definitions.json",
             'ecs_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tags.json",
-            # ECR Files
+            # ECR Public Files
             'public_repositories': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repositories.json",
             'public_images': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_images.json",
-            'repository_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_repository_policies.json",
-            'ecr_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_tags.json"
+            'public_repository_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repository_policies.json",
+            'public_ecr_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_tags.json",
+            # ECR Private Files
+            'private_repositories': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_repositories.json",
+            'private_images': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_images.json",
+            'private_repository_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_repository_policies.json",
+            'private_ecr_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_tags.json"
         }
     },
     'federal': {
         'region': 'us-west-2',
         'output_files': {
             # ECS Files
-            'clusters': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_clusters.json",
-            'services': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_services.json",
-            'tasks': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tasks.json",
-            'task_definitions': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_task_definitions.json",
-            'ecs_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tags.json",
-            # ECR Files
-            'public_repositories': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_repositories.json",
-            'public_images': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_images.json",
-            'repository_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_repository_policies.json",
-            'ecr_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_tags.json"
+            'clusters': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_clusters.json",
+            'services': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_services.json",
+            'tasks': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tasks.json",
+            'task_definitions': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_task_definitions.json",
+            'ecs_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tags.json",
+            # ECR Public Files
+            'public_repositories': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repositories.json",
+            'public_images': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_images.json",
+            'public_repository_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repository_policies.json",
+            'public_ecr_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_tags.json",
+            # ECR Private Files
+            'private_repositories': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_repositories.json",
+            'private_images': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_images.json",
+            'private_repository_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_repository_policies.json",
+            'private_ecr_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_private_tags.json"
         }
     }
 }
 
-# Helper function to run AWS CLI commands
 def run_command(command):
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=True)
         return json.loads(result.stdout)
     except subprocess.CalledProcessError as e:
-        print(f"Command failed: {' '.join(command)}\nError: {e}")
+        print(f"Command failed: {' '.join(command)}\nError: {e.stderr}")
         return {}
 
 # ECS Evidence Collection Functions
@@ -110,39 +119,70 @@ def fetch_ecs_tags(config, output_file):
 
 # ECR Evidence Collection Functions
 def fetch_public_repositories(config, output_file):
-    public_repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(public_repositories_data, f, indent=4)
+    print(f"Fetching public repositories for {config['region']}...")
+    public_repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--output', 'json'])
+    if public_repositories_data:
+        with open(output_file, 'w') as f:
+            json.dump(public_repositories_data, f, indent=4)
 
 def fetch_public_images(config, output_file):
-    repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--region', config['region'], '--output', 'json'])
+    print(f"Fetching public images for repositories in {config['region']}...")
+    repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--output', 'json'])
     images_data = []
-    for repo in repositories_data.get('repositories', []):
-        repo_name = repo['repositoryName']
-        images = run_command(['aws', 'ecr-public', 'describe-images', '--repository-name', repo_name, '--output', 'json'])
-        images_data.extend(images.get('imageDetails', []))
-    with open(output_file, 'w') as f:
-        json.dump(images_data, f, indent=4)
+    if repositories_data:
+        for repo in repositories_data.get('repositories', []):
+            repo_name = repo['repositoryName']
+            images = run_command(['aws', 'ecr-public', 'describe-images', '--repository-name', repo_name, '--output', 'json'])
+            if images:
+                images_data.extend(images.get('imageDetails', []))
+        with open(output_file, 'w') as f:
+            json.dump(images_data, f, indent=4)
 
-def fetch_repository_policies(config, output_file):
-    repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--region', config['region'], '--output', 'json'])
+def fetch_private_repositories(config, output_file):
+    print(f"Fetching private repositories for {config['region']}...")
+    private_repositories_data = run_command(['aws', 'ecr', 'describe-repositories', '--region', config['region'], '--output', 'json'])
+    if private_repositories_data:
+        with open(output_file, 'w') as f:
+            json.dump(private_repositories_data, f, indent=4)
+
+def fetch_private_images(config, output_file):
+    print(f"Fetching private images for repositories in {config['region']}...")
+    repositories_data = run_command(['aws', 'ecr', 'describe-repositories', '--region', config['region'], '--output', 'json'])
+    images_data = []
+    if repositories_data:
+        for repo in repositories_data.get('repositories', []):
+            repo_name = repo['repositoryName']
+            images = run_command(['aws', 'ecr', 'describe-images', '--repository-name', repo_name, '--region', config['region'], '--output', 'json'])
+            if images:
+                images_data.extend(images.get('imageDetails', []))
+        with open(output_file, 'w') as f:
+            json.dump(images_data, f, indent=4)
+
+def fetch_private_repository_policies(config, output_file):
+    print(f"Fetching private repository policies for {config['region']}...")
+    repositories_data = run_command(['aws', 'ecr', 'describe-repositories', '--region', config['region'], '--output', 'json'])
     repository_policies_data = []
-    for repo in repositories_data.get('repositories', []):
-        repo_name = repo['repositoryName']
-        repo_policy = run_command(['aws', 'ecr-public', 'get-repository-policy', '--repository-name', repo_name, '--output', 'json'])
-        repository_policies_data.append({'RepositoryName': repo_name, 'Policy': repo_policy})
-    with open(output_file, 'w') as f:
-        json.dump(repository_policies_data, f, indent=4)
+    if repositories_data:
+        for repo in repositories_data.get('repositories', []):
+            repo_name = repo['repositoryName']
+            repo_policy = run_command(['aws', 'ecr', 'get-repository-policy', '--repository-name', repo_name, '--region', config['region'], '--output', 'json'])
+            if repo_policy:
+                repository_policies_data.append({'RepositoryName': repo_name, 'Policy': repo_policy})
+        with open(output_file, 'w') as f:
+            json.dump(repository_policies_data, f, indent=4)
 
-def fetch_ecr_public_tags(config, output_file):
-    repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--region', config['region'], '--output', 'json'])
+def fetch_private_tags(config, output_file):
+    print(f"Fetching tags for private repositories in {config['region']}...")
+    repositories_data = run_command(['aws', 'ecr', 'describe-repositories', '--region', config['region'], '--output', 'json'])
     tags_data = []
-    for repo in repositories_data.get('repositories', []):
-        repo_arn = repo['repositoryArn']
-        repo_tags = run_command(['aws', 'ecr-public', 'list-tags-for-resource', '--resource-arn', repo_arn, '--output', 'json'])
-        tags_data.append({'RepositoryArn': repo_arn, 'Tags': repo_tags.get('tags', [])})
-    with open(output_file, 'w') as f:
-        json.dump(tags_data, f, indent=4)
+    if repositories_data:
+        for repo in repositories_data.get('repositories', []):
+            repo_arn = repo['repositoryArn']
+            repo_tags = run_command(['aws', 'ecr', 'list-tags-for-resource', '--resource-arn', repo_arn, '--region', config['region'], '--output', 'json'])
+            if repo_tags:
+                tags_data.append({'RepositoryArn': repo_arn, 'Tags': repo_tags.get('tags', [])})
+        with open(output_file, 'w') as f:
+            json.dump(tags_data, f, indent=4)
 
 # Main function to execute each evidence collection task for both environments
 def main():
@@ -161,6 +201,7 @@ def main():
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        
         # Collect evidence for ECS configurations
         fetch_clusters(config, config['output_files']['clusters'])
         fetch_services(config, config['output_files']['services'])
@@ -168,13 +209,19 @@ def main():
         fetch_task_definitions(config, config['output_files']['task_definitions'])
         fetch_ecs_tags(config, config['output_files']['ecs_tags'])
 
-        # Collect evidence for ECR configurations
+        # Collect evidence for ECR configurations (Public)
         fetch_public_repositories(config, config['output_files']['public_repositories'])
         fetch_public_images(config, config['output_files']['public_images'])
         fetch_repository_policies(config, config['output_files']['repository_policies'])
         fetch_ecr_public_tags(config, config['output_files']['ecr_tags'])
 
-    print("AWS ECS and ECR configuration evidence collection completed for both environments.")
+        # Collect evidence for ECR configurations (Private)
+        fetch_private_repositories(config, config['output_files']['repository_policies'])
+        fetch_private_images(config, config['output_files']['ecr_tags'])
+        fetch_private_repository_policies(config, config['output_files']['repository_policies'])
+        fetch_private_tags(config, config['output_files']['ecr_tags'])
+
+    print("AWS ECS and ECR (Public & Private) evidence collection completed for both environments.")
 
 # Execute main function
 if __name__ == "__main__":
