@@ -2,36 +2,50 @@ import os
 import subprocess
 import datetime
 import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import sys
 from credentials.aws import get_aws_credentials
+
+
+# Ensure the 'src' directory is in the Python module search path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
 
 # Define current year and month for directory paths
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()  # 31 days ago
-END_DATE = datetime.datetime.utcnow().isoformat()  # current time
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()  # 31 days ago
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat() 
+
+
+# Base directory for evidence artifacts
+BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")
 
 # Environment configuration for AWS credentials and output paths
 environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            '<Function1>': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
-            '<Function2>': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
-            '<Function3>': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
-            '<Function4>': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
-            '<Function5>': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
+            '<Function1>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
+            '<Function2>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
+            '<Function3>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
+            '<Function4>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
+            '<Function5>': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            '<Function1>': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
-            '<Function2>': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
-            '<Function3>': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
-            '<Function4>': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
-            '<Function5>': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
+            '<Function1>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function1>.json",
+            '<Function2>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function2>.json",
+            '<Function3>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function3>.json",
+            '<Function4>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function4>.json",
+            '<Function5>': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}.{DAY}-<Function5>.json"
         }
     }
 }

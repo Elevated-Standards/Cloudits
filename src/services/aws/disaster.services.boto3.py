@@ -16,19 +16,19 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'backup_vaults': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-backup_vaults.json",
-            'backup_plans': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-backup_plans.json",
-            'recovery_points': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-recovery_points.json",
-            'tags': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-backup_tags.json"
+            'backup_vaults': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-backup_vaults.json",
+            'backup_plans': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-backup_plans.json",
+            'recovery_points': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-recovery_points.json",
+            'tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-backup_tags.json"
         }
     },
     'federal': {
         'region': 'us-west-2',
         'output_files': {
-            'backup_vaults': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-backup_vaults.json",
-            'backup_plans': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-backup_plans.json",
-            'recovery_points': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-recovery_points.json",
-            'tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-backup_tags.json"
+            'backup_vaults': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-backup_vaults.json",
+            'backup_plans': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-backup_plans.json",
+            'recovery_points': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-recovery_points.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-backup_tags.json"
         }
     }
 }

@@ -26,31 +26,31 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            # Change '/evidence-artifacts' to './evidence-artifacts' (relative path)
-            'alarms': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_alarms.json",
-            'metrics': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_metrics.json",
-            'dashboards': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_dashboards.json",
-            'log_groups': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_log_groups.json",
-            'tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_tags.json",
-            'trails': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_trails.json",
-            'event_data_stores': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_event_data_stores.json",
-            'insights': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_insights.json",
-            'tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_tags.json"
+            # Change '{BASE_DIR}' to '{BASE_DIR}' (relative path)
+            'alarms': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_alarms.json",
+            'metrics': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_metrics.json",
+            'dashboards': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_dashboards.json",
+            'log_groups': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_log_groups.json",
+            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudwatch_tags.json",
+            'trails': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_trails.json",
+            'event_data_stores': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_event_data_stores.json",
+            'insights': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_insights.json",
+            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-cloudtrail_tags.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
             # Use relative paths
-            'alarms': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_alarms.json",
-            'metrics': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_metrics.json",
-            'dashboards': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_dashboards.json",
-            'log_groups': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_log_groups.json",
-            'tags': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_tags.json",
-            'trails': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_trails.json",
-            'event_data_stores': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_event_data_stores.json",
-            'insights': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_insights.json",
-            'tags': f"./evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_tags.json"
+            'alarms': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_alarms.json",
+            'metrics': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_metrics.json",
+            'dashboards': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_dashboards.json",
+            'log_groups': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_log_groups.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudwatch_tags.json",
+            'trails': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_trails.json",
+            'event_data_stores': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_event_data_stores.json",
+            'insights': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_insights.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-cloudtrail_tags.json"
         }
     }
 }

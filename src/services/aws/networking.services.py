@@ -28,48 +28,48 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ELBv2 Files
-            'elbv2_load_balancers': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_load_balancers.json",
-            'elbv2_listeners': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listeners.json",
-            'elbv2_listener_rules': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listener_rules.json",
-            'elbv2_target_groups': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_target_groups.json",
-            'elbv2_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_tags.json",
+            'elbv2_load_balancers': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_load_balancers.json",
+            'elbv2_listeners': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listeners.json",
+            'elbv2_listener_rules': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listener_rules.json",
+            'elbv2_target_groups': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_target_groups.json",
+            'elbv2_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_tags.json",
             # WAFv2 Files
-            'wafv2_web_acls': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_web_acls.json",
-            'wafv2_rules': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_rules.json",
-            'wafv2_ip_sets': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_ip_sets.json",
-            'wafv2_logging_config': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_logging_config.json",
-            'wafv2_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_tags.json",
+            'wafv2_web_acls': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_web_acls.json",
+            'wafv2_rules': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_rules.json",
+            'wafv2_ip_sets': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_ip_sets.json",
+            'wafv2_logging_config': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_logging_config.json",
+            'wafv2_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_tags.json",
             # App Mesh Files
-            'meshes': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
-            'virtual_services': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
-            'virtual_routers': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_routers.json",
-            'virtual_nodes': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_nodes.json",
-            'virtual_gateways': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_gateways.json",
-            'routes': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_routes.json"
+            'meshes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
+            'virtual_services': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
+            'virtual_routers': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_routers.json",
+            'virtual_nodes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_nodes.json",
+            'virtual_gateways': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_gateways.json",
+            'routes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_routes.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
             # ELBv2 Files
-            'elbv2_load_balancers': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_load_balancers.json",
-            'elbv2_listeners': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listeners.json",
-            'elbv2_listener_rules': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listener_rules.json",
-            'elbv2_target_groups': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_target_groups.json",
-            'elbv2_tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_tags.json",
+            'elbv2_load_balancers': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_load_balancers.json",
+            'elbv2_listeners': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listeners.json",
+            'elbv2_listener_rules': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listener_rules.json",
+            'elbv2_target_groups': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_target_groups.json",
+            'elbv2_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_tags.json",
             # WAFv2 Files
-            'wafv2_web_acls': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_web_acls.json",
-            'wafv2_rules': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_rules.json",
-            'wafv2_ip_sets': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_ip_sets.json",
-            'wafv2_logging_config': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_logging_config.json",
-            'wafv2_tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_tags.json",
+            'wafv2_web_acls': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_web_acls.json",
+            'wafv2_rules': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_rules.json",
+            'wafv2_ip_sets': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_ip_sets.json",
+            'wafv2_logging_config': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_logging_config.json",
+            'wafv2_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_tags.json",
             # App Mesh Files
-            'meshes': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
-            'virtual_services': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
-            'virtual_routers': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_routers.json",
-            'virtual_nodes': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_nodes.json",
-            'virtual_gateways': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_gateways.json",
-            'routes': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_routes.json"
+            'meshes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
+            'virtual_services': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
+            'virtual_routers': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_routers.json",
+            'virtual_nodes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_nodes.json",
+            'virtual_gateways': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_gateways.json",
+            'routes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_routes.json"
         }
     }
 }

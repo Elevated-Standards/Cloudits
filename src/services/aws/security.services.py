@@ -28,44 +28,44 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # GuardDuty Files
-            'detectors': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_detectors.json",
-            'members': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_members.json",
-            'ip_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_ip_sets.json",
-            'publishing_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_publishing_destinations.json",
-            'coverage': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_coverage.json",
-            'malware_scan_settings': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_malware_scan_settings.json",
-            'organization_configuration': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_organization_configuration.json",
-            'malware_scans': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_malware_scans.json",
+            'detectors': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_detectors.json",
+            'members': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_members.json",
+            'ip_sets': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_ip_sets.json",
+            'publishing_destinations': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_publishing_destinations.json",
+            'coverage': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_coverage.json",
+            'malware_scan_settings': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_malware_scan_settings.json",
+            'organization_configuration': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_organization_configuration.json",
+            'malware_scans': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_malware_scans.json",
             # IAM Files
-            'users': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_users.json",
-            'roles': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_roles.json",
-            'policies': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_policies.json",
-            'permissions_boundaries': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_permissions_boundaries.json",
-            'mfa_devices': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_mfa_devices.json",
-            'access_keys': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_access_keys.json",
-            'tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_tags.json"
+            'users': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_users.json",
+            'roles': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_roles.json",
+            'policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_policies.json",
+            'permissions_boundaries': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_permissions_boundaries.json",
+            'mfa_devices': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_mfa_devices.json",
+            'access_keys': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_access_keys.json",
+            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_tags.json"
         }
     },
     'federal': {
         'region': 'us-west-2',
         'output_files': {
             # GuardDuty Files
-            'detectors': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_detectors.json",
-            'members': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_members.json",
-            'ip_sets': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_ip_sets.json",
-            'publishing_destinations': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_publishing_destinations.json",
-            'coverage': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_coverage.json",
-            'malware_scan_settings': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_malware_scan_settings.json",
-            'organization_configuration': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_organization_configuration.json",
-            'malware_scans': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-guardduty_malware_scans.json",
+            'detectors': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_detectors.json",
+            'members': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_members.json",
+            'ip_sets': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_ip_sets.json",
+            'publishing_destinations': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_publishing_destinations.json",
+            'coverage': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_coverage.json",
+            'malware_scan_settings': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_malware_scan_settings.json",
+            'organization_configuration': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_organization_configuration.json",
+            'malware_scans': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_malware_scans.json",
             # IAM Files
-            'users': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_users.json",
-            'roles': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_roles.json",
-            'policies': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_policies.json",
-            'permissions_boundaries': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_permissions_boundaries.json",
-            'mfa_devices': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_mfa_devices.json",
-            'access_keys': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_access_keys.json",
-            'tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-iam_tags.json"
+            'users': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_users.json",
+            'roles': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_roles.json",
+            'policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_policies.json",
+            'permissions_boundaries': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_permissions_boundaries.json",
+            'mfa_devices': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_mfa_devices.json",
+            'access_keys': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_access_keys.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-iam_tags.json"
         }
     }
 }

@@ -28,32 +28,32 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ECS Files
-            'clusters': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_clusters.json",
-            'services': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_services.json",
-            'tasks': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tasks.json",
-            'task_definitions': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_task_definitions.json",
-            'ecs_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tags.json",
+            'clusters': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_clusters.json",
+            'services': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_services.json",
+            'tasks': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tasks.json",
+            'task_definitions': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_task_definitions.json",
+            'ecs_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tags.json",
             # ECR Files
-            'public_repositories': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repositories.json",
-            'public_images': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_images.json",
-            'repository_policies': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_repository_policies.json",
-            'ecr_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_tags.json"
+            'public_repositories': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repositories.json",
+            'public_images': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_images.json",
+            'repository_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_repository_policies.json",
+            'ecr_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_tags.json"
         }
     },
     'federal': {
         'region': 'us-west-2',
         'output_files': {
             # ECS Files
-            'clusters': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_clusters.json",
-            'services': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_services.json",
-            'tasks': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tasks.json",
-            'task_definitions': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_task_definitions.json",
-            'ecs_tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tags.json",
+            'clusters': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_clusters.json",
+            'services': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_services.json",
+            'tasks': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tasks.json",
+            'task_definitions': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_task_definitions.json",
+            'ecs_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tags.json",
             # ECR Files
-            'public_repositories': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_repositories.json",
-            'public_images': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_images.json",
-            'repository_policies': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_repository_policies.json",
-            'ecr_tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_tags.json"
+            'public_repositories': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_repositories.json",
+            'public_images': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_images.json",
+            'repository_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_repository_policies.json",
+            'ecr_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_tags.json"
         }
     }
 }
