@@ -7,6 +7,7 @@ import json
 import sys
 from credentials.aws import get_aws_credentials
 
+
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
@@ -16,11 +17,16 @@ enable_environments = {
     'federal': False      # Set to False to disable 'federal'
 }
 
+# Define current year and month for directory paths
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()  # 31 days ago
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat() 
+
+
+# Base directory for evidence artifacts
+BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")
 
 # Environment configuration for AWS credentials and output paths
 environments = {
@@ -28,30 +34,30 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ACM Files
-            'certificates': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificates.json",
-            'certificate_details': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificate_details.json",
-            'tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_tags.json",
-            'renewal_status': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_renewal_status.json",
+            'certificates': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificates.json",
+            'certificate_details': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificate_details.json",
+            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_tags.json",
+            'renewal_status': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_renewal_status.json",
             # KMS Files
-            'keys': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_keys.json",
-            'key_policies': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_key_policies.json",
-            'grants': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_grants.json",
-            'kms_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_tags.json"
+            'keys': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_keys.json",
+            'key_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_key_policies.json",
+            'grants': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_grants.json",
+            'kms_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_tags.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
             # ACM Files
-            'certificates': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_certificates.json",
-            'certificate_details': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_certificate_details.json",
-            'tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_tags.json",
-            'renewal_status': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_renewal_status.json",
+            'certificates': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_certificates.json",
+            'certificate_details': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_certificate_details.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_tags.json",
+            'renewal_status': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-acm_renewal_status.json",
             # KMS Files
-            'keys': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_keys.json",
-            'key_policies': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_key_policies.json",
-            'grants': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_grants.json",
-            'kms_tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_tags.json"
+            'keys': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_keys.json",
+            'key_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_key_policies.json",
+            'grants': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_grants.json",
+            'kms_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-{DAY}-kms_tags.json"
         }
     }
 }

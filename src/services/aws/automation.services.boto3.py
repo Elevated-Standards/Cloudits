@@ -16,23 +16,23 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'functions': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_functions.json",
-            'environment_variables': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_environment_variables.json",
-            'execution_roles': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_execution_roles.json",
-            'function_policies': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_function_policies.json",
-            'event_source_mappings': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_event_source_mappings.json",
-            'tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_tags.json"
+            'functions': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_functions.json",
+            'environment_variables': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_environment_variables.json",
+            'execution_roles': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_execution_roles.json",
+            'function_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_function_policies.json",
+            'event_source_mappings': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_event_source_mappings.json",
+            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-lambda_tags.json"
         }
     },
     'federal': {
         'region': 'us-west-2',
         'output_files': {
-            'functions': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_functions.json",
-            'environment_variables': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_environment_variables.json",
-            'execution_roles': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_execution_roles.json",
-            'function_policies': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_function_policies.json",
-            'event_source_mappings': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_event_source_mappings.json",
-            'tags': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_tags.json"
+            'functions': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_functions.json",
+            'environment_variables': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_environment_variables.json",
+            'execution_roles': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_execution_roles.json",
+            'function_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_function_policies.json",
+            'event_source_mappings': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_event_source_mappings.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_tags.json"
         }
     }
 }
