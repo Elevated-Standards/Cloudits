@@ -25,6 +25,9 @@ START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(
 END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat() 
 
 
+# Base directory for evidence artifacts
+BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")
+
 environments = {
     'commercial': {
         'region': 'us-east-1',
@@ -106,7 +109,7 @@ def main():
         for file_path in config['output_files'].values():
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-            
+
         # Collect all Lambda functions and iterate through each
         functions = fetch_lambda_functions(config, config['output_files']['functions'])
 
