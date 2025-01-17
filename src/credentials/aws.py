@@ -40,3 +40,14 @@ def get_aws_credentials(environment):
         return None
 
     return creds
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python aws.py <environment>")
+        sys.exit(1)
+
+    env = sys.argv[1]
+    credentials = get_aws_credentials(env)
+    if credentials:
+        print(f"Credentials for {env}: {credentials}")
+
