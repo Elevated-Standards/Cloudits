@@ -22,6 +22,9 @@ DAY = datetime.datetime.now().day
 START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
 END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
+# Base directory for evidence artifacts
+BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")
+
 # Environment configuration for AWS credentials and output paths
 environments = {
     'commercial': {
