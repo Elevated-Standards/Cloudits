@@ -1,6 +1,13 @@
 # src/credentials/aws.py
 
 import os
+import sys
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
 
 def get_aws_credentials(environment):
     """
