@@ -20,11 +20,11 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'identities': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_email_identities.json",
-            'configuration_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_configuration_sets.json",
-            'dedicated_ips': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_dedicated_ips.json",
-            'event_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_event_destinations.json",
-            'tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_tags.json"
+            'identities': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_email_identities.json",
+            'configuration_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_configuration_sets.json",
+            'dedicated_ips': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_dedicated_ips.json",
+            'event_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_event_destinations.json",
+            'tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_tags.json"
         }
     },
     'federal': {

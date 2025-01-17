@@ -15,11 +15,11 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'elbv2_load_balancers': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_load_balancers.json",
-            'elbv2_listeners': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listeners.json",
-            'elbv2_listener_rules': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listener_rules.json",
-            'elbv2_target_groups': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_target_groups.json",
-            'elbv2_tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_tags.json",
+            'elbv2_load_balancers': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_load_balancers.json",
+            'elbv2_listeners': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listeners.json",
+            'elbv2_listener_rules': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listener_rules.json",
+            'elbv2_target_groups': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_target_groups.json",
+            'elbv2_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_tags.json",
             'meshes': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
             'virtual_services': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
             'virtual_routers': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_routers.json",

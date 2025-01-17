@@ -4,13 +4,23 @@ import os
 import subprocess
 import datetime
 import json
+import sys
 from credentials.aws import get_aws_credentials
+
+# Ensure the 'src' directory is in the Python module search path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
 
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()  # 31 days ago
-END_DATE = datetime.datetime.utcnow().isoformat()  # current time
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 # Environment configuration for AWS credentials and output paths
 environments = {
@@ -18,16 +28,16 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ECS Files
-            'clusters': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_clusters.json",
-            'services': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_services.json",
-            'tasks': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tasks.json",
-            'task_definitions': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_task_definitions.json",
-            'ecs_tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecs_tags.json",
+            'clusters': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_clusters.json",
+            'services': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_services.json",
+            'tasks': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tasks.json",
+            'task_definitions': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_task_definitions.json",
+            'ecs_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecs_tags.json",
             # ECR Files
-            'public_repositories': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_repositories.json",
-            'public_images': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_public_images.json",
-            'repository_policies': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_repository_policies.json",
-            'ecr_tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-ecr_tags.json"
+            'public_repositories': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_repositories.json",
+            'public_images': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_public_images.json",
+            'repository_policies': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_repository_policies.json",
+            'ecr_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-ecr_tags.json"
         }
     },
     'federal': {

@@ -2,14 +2,25 @@ import os
 import subprocess
 import datetime
 import json
+import sys
 from credentials.aws import get_aws_credentials
 
-# Define current year and month for directory paths
+# Ensure the 'src' directory is in the Python module search path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
+
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.utcnow().isoformat()
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+
 # Replace with actual configuration set name and resource ARN
 config_set_name = 'YOUR_CONFIG_SET_NAME'
 resource_arn = 'YOUR_RESOURCE_ARN'
@@ -20,11 +31,11 @@ environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'identities': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_email_identities.json",
-            'configuration_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_configuration_sets.json",
-            'dedicated_ips': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_dedicated_ips.json",
-            'event_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_event_destinations.json",
-            'tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-sesv2_tags.json"
+            'identities': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_email_identities.json",
+            'configuration_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_configuration_sets.json",
+            'dedicated_ips': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_dedicated_ips.json",
+            'event_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_event_destinations.json",
+            'tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-sesv2_tags.json"
         }
     },
     'federal': {

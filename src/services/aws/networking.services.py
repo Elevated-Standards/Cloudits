@@ -4,15 +4,23 @@ import os
 import subprocess
 import datetime
 import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import sys
 from credentials.aws import get_aws_credentials
 
+# Ensure the 'src' directory is in the Python module search path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
 
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()  # 31 days ago
-END_DATE = datetime.datetime.utcnow().isoformat()  # current time
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 # Environment configuration for AWS credentials and output paths
 environments = {
@@ -20,17 +28,17 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ELBv2 Files
-            'elbv2_load_balancers': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_load_balancers.json",
-            'elbv2_listeners': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listeners.json",
-            'elbv2_listener_rules': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_listener_rules.json",
-            'elbv2_target_groups': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_target_groups.json",
-            'elbv2_tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-elbv2_tags.json",
+            'elbv2_load_balancers': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_load_balancers.json",
+            'elbv2_listeners': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listeners.json",
+            'elbv2_listener_rules': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_listener_rules.json",
+            'elbv2_target_groups': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_target_groups.json",
+            'elbv2_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-elbv2_tags.json",
             # WAFv2 Files
-            'wafv2_web_acls': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_web_acls.json",
-            'wafv2_rules': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_rules.json",
-            'wafv2_ip_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_ip_sets.json",
-            'wafv2_logging_config': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_logging_config.json",
-            'wafv2_tags': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-{DAY}-wafv2_tags.json",
+            'wafv2_web_acls': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_web_acls.json",
+            'wafv2_rules': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_rules.json",
+            'wafv2_ip_sets': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_ip_sets.json",
+            'wafv2_logging_config': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_logging_config.json",
+            'wafv2_tags': f"./evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-wafv2_tags.json",
             # App Mesh Files
             'meshes': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_meshes.json",
             'virtual_services': f"/evidence-artifacts/commercial/systems/aws/{YEAR}/{MONTH}-{DAY}-appmesh_virtual_services.json",
