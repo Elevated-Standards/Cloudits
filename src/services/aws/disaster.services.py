@@ -37,7 +37,7 @@ environments = {
         }
     },
     'federal': {
-        'region': 'us-west-2',
+        'region': 'us-east-1',
         'output_files': {
             'backup_vaults': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-backup_vaults.json",
             'backup_plans': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-backup_plans.json",
