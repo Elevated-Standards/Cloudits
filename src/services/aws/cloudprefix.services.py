@@ -4,6 +4,9 @@ import datetime
 import json
 from credentials.aws import get_aws_credentials
 
+# Ensure the 'src' directory is in the Python module search path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
