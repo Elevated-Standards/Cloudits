@@ -108,6 +108,7 @@ def fetch_event_data_stores(config, output_file):
     with open(output_file, 'w') as f:
         json.dump(event_data_stores_data, f, indent=4)
 
+
 def fetch_insights_selectors(config, output_file):
     """
     Fetch insight selectors for all trails in the specified region and save the data to a file.
@@ -148,6 +149,8 @@ def fetch_insights_selectors(config, output_file):
 
     except Exception as e:
         print(f"Error occurred while fetching insights: {e}")
+
+
 
 
 def fetch_cloudtrail_tags(config, output_file):
