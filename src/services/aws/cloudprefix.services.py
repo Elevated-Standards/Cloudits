@@ -2,6 +2,7 @@ import os
 import subprocess
 import datetime
 import json
+import sys
 from credentials.aws import get_aws_credentials
 
 # Ensure the 'src' directory is in the Python module search path
