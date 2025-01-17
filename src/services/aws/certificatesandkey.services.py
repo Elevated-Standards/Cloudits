@@ -34,15 +34,15 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # ACM Files
-            'certificates': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificates.json",
-            'certificate_details': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificate_details.json",
-            'tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_tags.json",
-            'renewal_status': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_renewal_status.json",
+            'certificates': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificates.json",
+            'certificate_details': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_certificate_details.json",
+            'tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_tags.json",
+            'renewal_status': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-acm_renewal_status.json",
             # KMS Files
-            'keys': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_keys.json",
-            'key_policies': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_key_policies.json",
-            'grants': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_grants.json",
-            'kms_tags': f"{BASE_DIR}/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_tags.json"
+            'keys': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_keys.json",
+            'key_policies': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_key_policies.json",
+            'grants': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_grants.json",
+            'kms_tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-kms_tags.json"
         }
     },
     'federal': {
