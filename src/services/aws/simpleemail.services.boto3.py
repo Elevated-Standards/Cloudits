@@ -30,11 +30,11 @@ environments = {
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            'identities': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-sesv2_email_identities.json",
-            'configuration_sets': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-sesv2_configuration_sets.json",
-            'dedicated_ips': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-sesv2_dedicated_ips.json",
-            'event_destinations': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-sesv2_event_destinations.json",
-            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-sesv2_tags.json"
+            'identities': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-sesv2_email_identities.json",
+            'configuration_sets': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-sesv2_configuration_sets.json",
+            'dedicated_ips': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-sesv2_dedicated_ips.json",
+            'event_destinations': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-sesv2_event_destinations.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-sesv2_tags.json"
         }
     }
 }

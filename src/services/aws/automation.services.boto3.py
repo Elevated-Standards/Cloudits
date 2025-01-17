@@ -27,12 +27,12 @@ environments = {
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            'functions': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_functions.json",
-            'environment_variables': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_environment_variables.json",
-            'execution_roles': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_execution_roles.json",
-            'function_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_function_policies.json",
-            'event_source_mappings': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_event_source_mappings.json",
-            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-lambda_tags.json"
+            'functions': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-lambda_functions.json",
+            'environment_variables': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-lambda_environment_variables.json",
+            'execution_roles': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-lambda_execution_roles.json",
+            'function_policies': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-lambda_function_policies.json",
+            'event_source_mappings': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-lambda_event_source_mappings.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{MONTH}-lambda_tags.json"
         }
     }
 }

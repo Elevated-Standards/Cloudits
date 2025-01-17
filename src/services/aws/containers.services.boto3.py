@@ -30,15 +30,15 @@ environments = {
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            'clusters': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecs_clusters.json",
-            'services': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecs_services.json",
-            'tasks': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecs_tasks.json",
-            'task_definitions': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecs_task_definitions.json",
-            'ecs_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecs_tags.json",
-            'public_repositories': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecr_public_repositories.json",
-            'public_images': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecr_public_images.json",
-            'repository_policies': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecr_repository_policies.json",
-            'ecr_tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{END_DATE}-ecr_tags.json"
+            'clusters': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecs_clusters.json",
+            'services': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecs_services.json",
+            'tasks': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecs_tasks.json",
+            'task_definitions': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecs_task_definitions.json",
+            'ecs_tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecs_tags.json",
+            'public_repositories': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecr_public_repositories.json",
+            'public_images': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecr_public_images.json",
+            'repository_policies': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecr_repository_policies.json",
+            'ecr_tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-ecr_tags.json"
         }
     }
 }
