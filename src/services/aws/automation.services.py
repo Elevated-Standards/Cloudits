@@ -4,6 +4,9 @@ import os
 import subprocess
 import datetime
 import json
+from credentials.aws import get_aws_credentials
+
+
 # Define current year and month for directory paths
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
@@ -11,10 +14,9 @@ DAY = datetime.datetime.now().day
 START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()  # 31 days ago
 END_DATE = datetime.datetime.utcnow().isoformat()  # current time
 
+
 environments = {
     'commercial': {
-        'access_key': os.getenv('AUTOMATION_AWS_ACCESS_KEY_ID'),
-        'secret_key': os.getenv('AUTOMATION_AWS_SECRET_ACCESS_KEY'),
         'region': 'us-east-1',
         'output_files': {
             'functions': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-lambda_functions.json",
@@ -26,8 +28,6 @@ environments = {
         }
     },
     'federal': {
-        'access_key': os.getenv('FEDERAL_AUTOMATION_AWS_ACCESS_KEY_ID'),
-        'secret_key': os.getenv('FEDERA_AUTOMATION_AWS_SECRET_ACCESS_KEY'),
         'region': 'us-west-2',
         'output_files': {
             'functions': f"/evidence-artifacts/federal/systems/aws/{YEAR}/{MONTH}-lambda_functions.json",
@@ -81,14 +81,20 @@ def fetch_lambda_tags(config, function_arn):
 # Main function to execute each evidence collection task
 def main():
     for env_name, config in environments.items():
-        # Set AWS environment variables for each environment
-        os.environ['AWS_ACCESS_KEY_ID'] = config['access_key']
-        os.environ['AWS_SECRET_ACCESS_KEY'] = config['secret_key']
-        os.environ['AWS_DEFAULT_REGION'] = config['region']
+        # Fetch AWS credentials for the current environment
+        aws_creds = get_aws_credentials(env_name)
+        if not aws_creds:
+            print(f"Skipping environment '{env_name}' due to credential issues.")
+            continue
         
+        # Set AWS environment variables for subprocess commands
+        os.environ['AWS_ACCESS_KEY_ID'] = aws_creds['access_key']
+        os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
+        os.environ['AWS_DEFAULT_REGION'] = aws_creds['region']
+
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            os.makedirs(os.path.dirname(file_path), exist_ok=True
 
         # Collect all Lambda functions and iterate through each
         functions = fetch_lambda_functions(config, config['output_files']['functions'])

@@ -1,0 +1,9 @@
+# credentials.py
+import os
+
+ATLASSIAN_DOMAIN = os.getenv("ATLASSIAN_DOMAIN")
+ATLASSIAN_EMAIL = os.getenv("ATLASSIAN_EMAIL")
+ATLASSIAN_API_TOKEN = os.getenv("ATLASSIAN_API_TOKEN")
+
+
+
