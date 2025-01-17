@@ -3,58 +3,52 @@
 import os
 import sys
 
-# Define toggles to enable or disable environments
-enable_environments = {
-    'commercial': True,  # Set to False to disable 'commercial'
-    'federal': False      # Set to False to disable 'federal'
-}
-
 def get_aws_credentials(environment):
     """
-    Fetch AWS credentials securely from environment variables based on the specified environment.
-    Supports 'commercial' and 'federal' configurations.
+    Fetch AWS credentials directly from the environment variables.
+    This assumes credentials are managed by `aws-actions/configure-aws-credentials`.
 
     Args:
         environment (str): The environment for which credentials are required ('commercial' or 'federal').
 
     Returns:
-        dict: A dictionary containing 'access_key', 'secret_key', and 'region' for the specified environment.
-              Returns None if credentials are missing or the environment is invalid.
+        dict: A dictionary containing 'access_key', 'secret_key', and 'region'.
     """
-    credentials = {
-        'commercial': {
-            'access_key': os.getenv('AUTOMATION_AWS_ACCESS_KEY_ID'),
-            'secret_key': os.getenv('AUTOMATION_AWS_SECRET_ACCESS_KEY'),
-            'region': 'us-east-1'
-        },
-        'federal': {
-            'access_key': os.getenv('FEDERAL_AUTOMATION_AWS_ACCESS_KEY_ID'),
-            'secret_key': os.getenv('FEDERAL_AUTOMATION_AWS_SECRET_ACCESS_KEY'),
-            'region': 'us-west-2'
-        }
+    # Define regions for each environment
+    regions = {
+        'commercial': 'us-east-1',
+        'federal': 'us-east-1',
     }
 
-    # Fetch credentials for the specified environment
-    creds = credentials.get(environment)
-
-    if not creds:
+    # Ensure the requested environment is valid
+    if environment not in regions:
         print(f"Error: Invalid environment '{environment}' specified.")
         return None
 
-    # Validate that all required credentials are available
-    if not creds['access_key'] or not creds['secret_key']:
+    # Fetch credentials directly from environment variables
+    credentials = {
+        'access_key': os.getenv('AWS_ACCESS_KEY_ID'),
+        'secret_key': os.getenv('AWS_SECRET_ACCESS_KEY'),
+        'region': regions[environment],
+    }
+
+    # Check if credentials are missing
+    if not credentials['access_key'] or not credentials['secret_key']:
         print(f"Error: Missing AWS credentials for the '{environment}' environment.")
         return None
 
-    return creds
+    return credentials
 
 if __name__ == "__main__":
+    import sys
+
+    # Ensure the script is called with the required environment argument
     if len(sys.argv) != 2:
         print("Usage: python aws.py <environment>")
         sys.exit(1)
 
+    # Fetch and display credentials for the given environment
     env = sys.argv[1]
     credentials = get_aws_credentials(env)
     if credentials:
         print(f"Credentials for {env}: {credentials}")
-
