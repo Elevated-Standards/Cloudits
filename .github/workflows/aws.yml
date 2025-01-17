@@ -30,11 +30,13 @@ jobs:
 
     - name: Run evidence collection script
       run: |
-        python src/services/aws/automation.services.py
-
-
-
-
-
-
+        # python src/services/aws/automation.services.py
+        # python src/services/aws/certificatesandkey.services.py
+        python src/services/aws/cloudprefix.services.py
+        # python src/services/aws/containers.services.py
+        # python src/services/aws/dataandstorage.services.py
+        # python src/services/aws/disaster.services.py
+        # python src/services/aws/networking.services.py
+        # python src/services/aws/security.services.py
+        # python src/services/aws/simpleemail.services.py
 
