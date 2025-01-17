@@ -5,7 +5,7 @@ import subprocess
 import datetime
 import json
 import sys
-from credentials.aws import get_aws_credentials
+from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
 
 
 # Ensure the 'src' directory is in the Python module search path
@@ -166,9 +166,8 @@ def main():
         os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
         os.environ['AWS_DEFAULT_REGION'] = aws_creds['region']
 
-        # Ensure directories exist for output files
-        for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        ensure_directories_exist(config['output_files'].values())
+
         # Collect evidence for ACM configurations
         fetch_certificates(config, config['output_files']['certificates'])
         fetch_certificate_details(config, config['output_files']['certificate_details'])
