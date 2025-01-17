@@ -28,6 +28,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install boto3
 
+    - name: Debug Environment Variables
+      run: |
+        echo "AUTOMATION_AWS_ACCESS_KEY_ID=${AUTOMATION_AWS_ACCESS_KEY_ID}"
+        echo "AUTOMATION_AWS_SECRET_ACCESS_KEY=${AUTOMATION_AWS_SECRET_ACCESS_KEY}"
+        echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}"
+
     - name: Run evidence collection script
       run: |
         export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
@@ -40,4 +46,5 @@ jobs:
         # python src/services/aws/networking.services.py
         # python src/services/aws/security.services.py
         # python src/services/aws/simpleemail.services.py
+
 
