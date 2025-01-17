@@ -11,15 +11,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.utcnow().isoformat()
-
-
-# Define toggles to enable or disable environments
-enable_environments = {
-    'commercial': True,  # Set to False to disable evidence collection for 'commercial'
-    'federal': False      # Set to False to disable evidence collection for 'federal'
-}
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 
 # Environment configuration for AWS credentials and output paths
