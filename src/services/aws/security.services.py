@@ -31,26 +31,26 @@ environments = {
         'region': 'us-east-1',
         'output_files': {
             # GuardDuty Files
-            'detectors': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_detectors.json",
-            'members': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_members.json",
-            'ip_sets': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_ip_sets.json",
-            'publishing_destinations': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_publishing_destinations.json",
-            'coverage': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_coverage.json",
-            'malware_scan_settings': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_malware_scan_settings.json",
-            'organization_configuration': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_organization_configuration.json",
-            'malware_scans': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_malware_scans.json",
+            'detectors': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_detectors.json",
+            'members': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_members.json",
+            'ip_sets': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_ip_sets.json",
+            'publishing_destinations': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_publishing_destinations.json",
+            'coverage': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_coverage.json",
+            'malware_scan_settings': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_malware_scan_settings.json",
+            'organization_configuration': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_organization_configuration.json",
+            'malware_scans': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-guardduty_malware_scans.json",
             # IAM Files
-            'users': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_users.json",
-            'roles': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_roles.json",
-            'policies': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_policies.json",
-            'permissions_boundaries': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_permissions_boundaries.json",
-            'mfa_devices': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_mfa_devices.json",
-            'access_keys': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_access_keys.json",
-            'tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_tags.json"
+            'users': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_users.json",
+            'roles': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_roles.json",
+            'policies': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_policies.json",
+            'permissions_boundaries': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_permissions_boundaries.json",
+            'mfa_devices': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_mfa_devices.json",
+            'access_keys': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_access_keys.json",
+            'tags': f"{BASE_DIR}/commercial/systems//aws/{YEAR}/{MONTH}/{END_DATE}-iam_tags.json"
         }
     },
     'federal': {
-        'region': 'us-west-2',
+        'region': 'us-east-1',
         'output_files': {
             # GuardDuty Files
             'detectors': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}-guardduty_detectors.json",

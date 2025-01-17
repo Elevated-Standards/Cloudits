@@ -13,7 +13,7 @@ DAY=$(date +%d)
 START_DATE=$(date -u -d "31 days ago" +"%Y-%m-%dT%H:%M:%SZ")
 
 # Get the current date and time in ISO 8601 format
-END_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+END_DATE=$(date -u +"%H:%M:%SZT%Y-%m-%d")
 
 # Print the values (optional)
 echo "Year: $YEAR"
@@ -21,3 +21,5 @@ echo "Month: $MONTH"
 echo "Day: $DAY"
 echo "Start Date: $START_DATE"
 echo "End Date: $END_DATE"
+
+
