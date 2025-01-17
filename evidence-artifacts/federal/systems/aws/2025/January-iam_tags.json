@@ -1,0 +1,18 @@
+[
+    {
+        "RoleName": "AWSServiceRoleForSupport",
+        "Tags": []
+    },
+    {
+        "RoleName": "AWSServiceRoleForTrustedAdvisor",
+        "Tags": []
+    },
+    {
+        "RoleName": "elevated-standards",
+        "Tags": []
+    },
+    {
+        "RoleName": "Github-Actions",
+        "Tags": []
+    }
+]
