@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 env:
   AWS_REGION : "us-east-1"
-  
+  CI_COMMIT_MESSAGE: AWS Evidence Collected
 permissions:
   id-token: write   
   contents: read   
@@ -32,6 +32,11 @@ jobs:
         echo "AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}"
         echo "AWS_REGION=${AWS_REGION}"
 
+    - name: PREP
+      run: |
+        YEAR=$(date +%Y)
+        mkdir -p /evidence-artifacts/systems/aws/{YEAR}/
+
     - name: Run evidence collection script
       run: |
         export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
@@ -45,4 +50,11 @@ jobs:
         # python src/services/aws/security.services.py
         # python src/services/aws/simpleemail.services.py
 
+    - name: Commit and Push Results
+      run: |
+         git config --local user.name "GitHub Actions"
+         git config --local user.email "actions@github.com"
+         git add -A
+         git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+         git push origin HEAD:${{ github.ref }}
 
