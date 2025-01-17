@@ -4,14 +4,23 @@ import os
 import subprocess
 import datetime
 import json
+import sys
 from credentials.aws import get_aws_credentials
 
-# Define current year, month, and day for directory paths
+# Ensure the 'src' directory is in the Python module search path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
+
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.utcnow().isoformat(
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 # Environment configuration for AWS credentials and output paths
 environments = {

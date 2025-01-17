@@ -8,24 +8,24 @@ from credentials.aws import get_aws_credentials
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
 DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.utcnow() - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.utcnow().isoformat()
+START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
+END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 # Environment configuration for AWS credentials and output paths
 environments = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            'detectors': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-guardduty_detectors.json",
-            'members': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-guardduty_members.json",
-            'ip_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-guardduty_ip_sets.json",
-            'publishing_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-guardduty_publishing_destinations.json",
-            'coverage': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-guardduty_coverage.json",
-            'organization_configuration': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-guardduty_organization_configuration.json",
-            'users': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-iam_users.json",
-            'roles': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-iam_roles.json",
-            'policies': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-iam_policies.json",
-            'mfa_devices': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}-iam_mfa_devices.json",
+            'detectors': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_detectors.json",
+            'members': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_members.json",
+            'ip_sets': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_ip_sets.json",
+            'publishing_destinations': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_publishing_destinations.json",
+            'coverage': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_coverage.json",
+            'organization_configuration': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-guardduty_organization_configuration.json",
+            'users': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_users.json",
+            'roles': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_roles.json",
+            'policies': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_policies.json",
+            'mfa_devices': f"/evidence-artifacts/systems/aws/{YEAR}/{MONTH}/{MONTH}-{DAY}-iam_mfa_devices.json",
         }
     },
     'federal': {
