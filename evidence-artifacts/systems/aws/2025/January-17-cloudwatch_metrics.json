@@ -1,0 +1,1356 @@
+{
+    "Metrics": [
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ValidatePolicy"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Access Analyzer"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Events",
+            "MetricName": "InvocationsCreated",
+            "Dimensions": []
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "Invocations"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "EventBridge"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListEnrollmentStatuses"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CostOptimizationHub"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeOrganization"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Organizations"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListPolicyGenerations"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Access Analyzer"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeEventAggregates"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "AWS Health APIs And Notifications"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetCostAndUsage"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Cost Explorer"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetCostForecast"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Cost Explorer"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListProblems"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch Application Insights"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListGroups"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Resource Groups"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeRegions"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "EC2"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeMetricFilters"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetMetricData"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeAlarms"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListSinks"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Observability Access Manager"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": []
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeMetricFilters"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeLogStreams"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeLogStreams"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeInsightRules"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetAlternateContact"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Account Management"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetContactInformation"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Account Management"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListRegions"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Account Management"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListNotificationHubs"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "AWS User Notifications"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "ConcurrentSessionsCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "StartLiveTail"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeScalingPolicies"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "EC2 Auto Scaling"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListSubscriptions"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "SNS"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListTopics"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "SNS"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribePolicies"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "EC2 Auto Scaling"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetResources"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Resource Groups Tagging API"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListApplications"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Service Catalog AppRegistry"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeHub"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Security Hub"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetTagKeys"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Resource Groups Tagging API"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeLogGroups"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeLogGroups"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetDashboard"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "StartLiveTail"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "PutRetentionPolicy"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "CreateLogGroup"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "PutRetentionPolicy"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "CreateLogGroup"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "StartLiveTail"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "DescribeTrails"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "LookupEvents"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListTrails"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListEventDataStores"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "ResourceCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "Resource"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "Trail"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "ResourceCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "Resource"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "EventDataStore"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "CreateBucket"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "S3"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "PutBucketEncryption"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "S3"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "PutBucketPolicy"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "S3"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListTags"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListDashboards"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListTagsLogGroup"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Logs",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListTagsLogGroup"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "Logs"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetInsightSelectors"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "ListMetrics"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudWatch"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "CreateTrail"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "PutEventSelectors"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GetTrailStatus"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "CallCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "API"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "StartLogging"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "CloudTrail"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        },
+        {
+            "Namespace": "AWS/Usage",
+            "MetricName": "ResourceCount",
+            "Dimensions": [
+                {
+                    "Name": "Type",
+                    "Value": "Resource"
+                },
+                {
+                    "Name": "Resource",
+                    "Value": "GeneralPurposeBuckets"
+                },
+                {
+                    "Name": "Service",
+                    "Value": "S3"
+                },
+                {
+                    "Name": "Class",
+                    "Value": "None"
+                }
+            ]
+        }
+    ]
+}
