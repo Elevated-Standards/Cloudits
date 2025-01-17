@@ -1,9 +1,0 @@
-{
-    "Trails": [
-        {
-            "TrailARN": "arn:aws:cloudtrail:us-east-1:145023120730:trail/management-events",
-            "Name": "management-events",
-            "HomeRegion": "us-east-1"
-        }
-    ]
-}
