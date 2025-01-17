@@ -156,6 +156,30 @@ def fetch_malware_scans(config, output_file):
     with open(output_file, 'w') as f:
         json.dump(malware_scans_data, f, indent=4)
 
+def fetch_malware_scan_settings(config, output_file):
+    """
+    Fetch malware scan settings for all GuardDuty detectors in the specified region and save them to a file.
+    """
+    detectors_data = run_command(['aws', 'guardduty', 'list-detectors', '--region', config['region'], '--output', 'json'])
+    malware_scan_settings_data = []
+    
+    for detector_id in detectors_data.get('DetectorIds', []):
+        try:
+            settings = run_command(['aws', 'guardduty', 'get-malware-scan-settings', '--detector-id', detector_id, '--output', 'json'])
+            malware_scan_settings_data.append({
+                'DetectorId': detector_id,
+                'MalwareScanSettings': settings
+            })
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to fetch malware scan settings for detector '{detector_id}': {e.stderr}")
+    
+    # Save the collected malware scan settings to the output file
+    with open(output_file, 'w') as f:
+        json.dump(malware_scan_settings_data, f, indent=4)
+    
+    print(f"Malware scan settings saved to {output_file}.")
+
+
 # IAM Evidence Collection Functions
 def fetch_iam_users(config, output_file):
     users_data = run_command(['aws', 'iam', 'list-users', '--region', config['region'], '--output', 'json'])
@@ -263,7 +287,7 @@ def main():
         if not aws_creds:
             print(f"Skipping environment '{env_name}' due to credential issues.")
             continue
-        
+
         # Set AWS environment variables for subprocess commands
         os.environ['AWS_ACCESS_KEY_ID'] = aws_creds['access_key']
         os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
@@ -272,15 +296,16 @@ def main():
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
         # Collect evidence for AWS GuardDuty configurations
         fetch_detectors(config, config['output_files']['detectors'])
         fetch_guardduty_members(config, config['output_files']['members'])
         fetch_ip_sets(config, config['output_files']['ip_sets'])
         fetch_guardduty_publishing_destinations(config, config['output_files']['publishing_destinations'])
         fetch_guardduty_coverage(config, config['output_files']['coverage'])
-        fetch_malware_scan_settings(config, config['output_files']['malware_scan_settings'])
+        fetch_malware_scan_settings(config, config['output_files']['malware_scan_settings'])  # Newly defined function
         fetch_organization_configuration(config, config['output_files']['organization_configuration'])
-        fetch_malware_scans(config, config['output_files']['malware_scans'])
+        fetch_malware_scans(config, config['output_files']['malware_scans'])  # Existing function
 
         # Collect evidence for AWS IAM configurations
         fetch_iam_users(config, config['output_files']['users'])
@@ -292,6 +317,5 @@ def main():
         fetch_iam_tags(config, config['output_files']['tags'])
 
     print("AWS GuardDuty and IAM configuration evidence collection completed for all environments.")
-
 if __name__ == "__main__":
     main()
