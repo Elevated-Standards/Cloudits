@@ -100,8 +100,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         # Collect all Lambda functions and iterate through each
         functions = fetch_lambda_functions(config, config['output_files']['functions'])
 

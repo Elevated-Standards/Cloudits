@@ -268,8 +268,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         # Collect evidence for AWS GuardDuty configurations
         fetch_detectors(config, config['output_files']['detectors'])
         fetch_guardduty_members(config, config['output_files']['members'])

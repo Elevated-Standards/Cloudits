@@ -106,8 +106,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         # Collect evidence for AWS SES v2 configurations
         fetch_email_identities(config, config['output_files']['identities'])
         fetch_configuration_sets(config, config['output_files']['configuration_sets'])
