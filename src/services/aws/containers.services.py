@@ -138,6 +138,35 @@ def fetch_public_images(config, output_file):
         with open(output_file, 'w') as f:
             json.dump(images_data, f, indent=4)
 
+# Fetch policies for public repositories
+def fetch_public_repository_policies(config, output_file):
+    print(f"Fetching public repository policies for {config['region']}...")
+    repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--output', 'json'])
+    repository_policies_data = []
+    if repositories_data:
+        for repo in repositories_data.get('repositories', []):
+            repo_name = repo['repositoryName']
+            repo_policy = run_command(['aws', 'ecr-public', 'get-repository-policy', '--repository-name', repo_name, '--output', 'json'])
+            if repo_policy:
+                repository_policies_data.append({'RepositoryName': repo_name, 'Policy': repo_policy})
+        with open(output_file, 'w') as f:
+            json.dump(repository_policies_data, f, indent=4)
+
+# Fetch tags for public repositories
+def fetch_ecr_public_tags(config, output_file):
+    print(f"Fetching tags for public repositories for {config['region']}...")
+    repositories_data = run_command(['aws', 'ecr-public', 'describe-repositories', '--output', 'json'])
+    tags_data = []
+    if repositories_data:
+        for repo in repositories_data.get('repositories', []):
+            repo_arn = repo['repositoryArn']
+            repo_tags = run_command(['aws', 'ecr-public', 'list-tags-for-resource', '--resource-arn', repo_arn, '--output', 'json'])
+            if repo_tags:
+                tags_data.append({'RepositoryArn': repo_arn, 'Tags': repo_tags.get('tags', [])})
+        with open(output_file, 'w') as f:
+            json.dump(tags_data, f, indent=4)
+
+
 def fetch_private_repositories(config, output_file):
     print(f"Fetching private repositories for {config['region']}...")
     private_repositories_data = run_command(['aws', 'ecr', 'describe-repositories', '--region', config['region'], '--output', 'json'])
@@ -212,14 +241,15 @@ def main():
         # Collect evidence for ECR configurations (Public)
         fetch_public_repositories(config, config['output_files']['public_repositories'])
         fetch_public_images(config, config['output_files']['public_images'])
-        fetch_repository_policies(config, config['output_files']['repository_policies'])
-        fetch_ecr_public_tags(config, config['output_files']['ecr_tags'])
+        fetch_public_repository_policies(config, config['output_files']['public_repository_policies'])
+        fetch_ecr_public_tags(config, config['output_files']['public_ecr_tags'])
 
         # Collect evidence for ECR configurations (Private)
-        fetch_private_repositories(config, config['output_files']['repository_policies'])
-        fetch_private_images(config, config['output_files']['ecr_tags'])
-        fetch_private_repository_policies(config, config['output_files']['repository_policies'])
-        fetch_private_tags(config, config['output_files']['ecr_tags'])
+        fetch_private_repositories(config, config['output_files']['private_repositories'])
+        fetch_private_images(config, config['output_files']['private_images'])
+        fetch_private_repository_policies(config, config['output_files']['private_repository_policies'])
+        fetch_private_tags(config, config['output_files']['private_ecr_tags'])
+
 
     print("AWS ECS and ECR (Public & Private) evidence collection completed for both environments.")
 
