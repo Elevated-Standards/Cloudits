@@ -107,17 +107,46 @@ def fetch_event_data_stores(config, output_file):
         json.dump(event_data_stores_data, f, indent=4)
 
 def fetch_insights_selectors(config, output_file):
-    trails_data = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
-    insights_data = []
-    for trail in trails_data['Trails']:
-        trail_name = trail['Name']
-        insights_selectors = run_command(['aws', 'cloudtrail', 'get-insight-selectors', '--trail-name', trail_name, '--output', 'json'])
-        insights_data.append({
-            'TrailName': trail_name,
-            'InsightSelectors': insights_selectors.get('InsightSelectors', [])
-        })
-    with open(output_file, 'w') as f:
-        json.dump(insights_data, f, indent=4)
+    """
+    Fetch insight selectors for all trails in the specified region and save the data to a file.
+    """
+    try:
+        # List all trails in the specified region
+        trails_data = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
+        trails = trails_data.get('Trails', [])
+        
+        if not trails:
+            print(f"No trails found in region {config['region']}.")
+            return
+        
+        insights_data = []
+
+        for trail in trails:
+            trail_name = trail.get('Name')
+            if not trail_name:
+                print(f"Skipping trail with no name: {trail}")
+                continue
+
+            print(f"Processing trail: {trail_name}")
+
+            try:
+                # Fetch insight selectors for the current trail
+                insights_selectors = run_command(['aws', 'cloudtrail', 'get-insight-selectors', '--trail-name', trail_name, '--output', 'json'])
+                insights_data.append({
+                    'TrailName': trail_name,
+                    'InsightSelectors': insights_selectors.get('InsightSelectors', [])
+                })
+            except Exception as e:
+                print(f"Failed to fetch insight selectors for trail '{trail_name}': {e}")
+
+        # Save the insights data to a file
+        with open(output_file, 'w') as f:
+            json.dump(insights_data, f, indent=4)
+        print(f"Insight selectors data saved to {output_file}.")
+
+    except Exception as e:
+        print(f"Error occurred while fetching insights: {e}")
+
 
 def fetch_cloudtrail_tags(config, output_file):
     trails_data = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
@@ -168,6 +197,7 @@ def main():
         fetch_insights_selectors(config, config['output_files']['insights'])
         fetch_cloudtrail_tags(config, config['output_files']['tags'])
 
+        
         print(f"Completed evidence collection for environment '{env_name}'.")
 
     print("AWS CloudWatch and CloudTrail configuration evidence collection completed.")
