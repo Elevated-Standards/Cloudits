@@ -1,16 +1,23 @@
 name: Evidence Collection
 on:
   workflow_dispatch:
-
+env:
+  AWS_REGION : "us-east-1"
+permissions:
+  id-token: write   
+  contents: read   
 jobs:
   aws-evidence:
     runs-on: ubuntu-latest
     steps:
+    - name: Git clone the repository
+      uses: actions/checkout@v4
     - name: Configure AWS credentials with OIDC
       uses: aws-actions/configure-aws-credentials@v3
       with:
         role-to-assume: arn:aws:iam::145023120730:role/elevated-standards
-        aws-region: us-east-1
+        role-session-name: evidencecollection
+        aws-region: ${{ env.AWS_REGION }}
 
     - name: Install dependencies
       run: |
