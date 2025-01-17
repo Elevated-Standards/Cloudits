@@ -3,6 +3,10 @@ on:
   workflow_dispatch:
 env:
   AWS_REGION : "us-east-1"
+  AUTOMATION_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AUTOMATION_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  FEDERAL_AUTOMATION_AWS_ACCESS_KEY_ID: ${{ secrets.FED_AWS_ACCESS_KEY_ID }}
+  FEDERAL_AUTOMATION_AWS_SECRET_ACCESS_KEY: ${{ secrets.FED_AWS_SECRET_ACCESS_KEY }}  
 permissions:
   id-token: write   
   contents: read   
@@ -23,4 +27,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install boto3
+
+    - name: Run evidence collection script
+      run: |
+        python src/services/aws/automation.services.py
+
+
+
+
+
+
 
