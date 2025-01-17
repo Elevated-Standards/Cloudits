@@ -157,8 +157,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         # Collect evidence for ECS configurations
         fetch_clusters(config, config['output_files']['clusters'])
         fetch_services(config, config['output_files']['services'])

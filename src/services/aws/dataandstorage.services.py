@@ -213,8 +213,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         # Collect evidence for each RDS configuration type
         fetch_db_instances(config, config['output_files']['db_instances'])
         fetch_db_snapshots(config, config['output_files']['db_snapshots'])

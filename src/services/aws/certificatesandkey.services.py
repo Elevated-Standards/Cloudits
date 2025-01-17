@@ -157,8 +157,7 @@ def main():
 
         # Ensure directories exist for output files
         for file_path in config['output_files'].values():
-            os.makedirs(os.path.dirname(file_path), exist_ok=True
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
         # Collect evidence for ACM configurations
         fetch_certificates(config, config['output_files']['certificates'])
         fetch_certificate_details(config, config['output_files']['certificate_details'])
