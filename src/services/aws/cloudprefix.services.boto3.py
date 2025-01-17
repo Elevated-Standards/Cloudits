@@ -69,8 +69,11 @@ def fetch_cloudwatch_dashboards(client, output_file):
 def fetch_cloudwatch_log_groups(client, output_file):
     paginator = client.get_paginator('describe_log_groups')
     log_groups = []
-    for page in paginator.paginate():
-        log_groups.extend(page['logGroups'])
+    try:
+        for page in paginator.paginate():
+            log_groups.extend(page['logGroups'])
+    except ClientError as e:
+        print(f"Error fetching log groups: {e}")
     with open(output_file, 'w') as f:
         json.dump(log_groups, f, indent=4)
 
