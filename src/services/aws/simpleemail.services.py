@@ -20,6 +20,8 @@ DAY = datetime.datetime.now().day
 START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
 END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
+# Base directory for evidence artifacts
+BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")
 
 # Replace with actual configuration set name and resource ARN
 config_set_name = 'YOUR_CONFIG_SET_NAME'
