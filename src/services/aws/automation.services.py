@@ -7,6 +7,12 @@ import json
 from credentials.aws import get_aws_credentials
 
 
+# Define toggles to enable or disable environments
+enable_environments = {
+    'commercial': True,  # Set to False to disable 'commercial'
+    'federal': False      # Set to False to disable 'federal'
+}
+
 # Define current year and month for directory paths
 YEAR = datetime.datetime.now().year
 MONTH = datetime.datetime.now().strftime('%B')
