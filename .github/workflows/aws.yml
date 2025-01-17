@@ -30,6 +30,7 @@ jobs:
 
     - name: Run evidence collection script
       run: |
+        export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
         # python src/services/aws/automation.services.py
         # python src/services/aws/certificatesandkey.services.py
         python src/services/aws/cloudprefix.services.py
