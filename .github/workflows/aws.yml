@@ -34,7 +34,7 @@ jobs:
 
     - name: PREP
       run: |
-        YEAR=$(date +%Y)
+        bash utils/date.sh
         mkdir -p /evidence-artifacts/systems/aws/{YEAR}/
 
     - name: Run evidence collection script
@@ -57,4 +57,3 @@ jobs:
          git add -A
          git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
          git push origin HEAD:${{ github.ref }}
-
