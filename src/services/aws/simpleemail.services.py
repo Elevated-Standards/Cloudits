@@ -95,6 +95,11 @@ def fetch_sesv2_tags(config, output_file, resource_arn):
 # Main function to execute each evidence collection task
 def main():
     for env_name, config in environments.items():
+        # Check if the environment is enabled
+        if not enable_environments.get(env_name, False):
+            print(f"Environment '{env_name}' is disabled. Skipping...")
+            continue
+
         # Fetch AWS credentials for the current environment
         aws_creds = get_aws_credentials(env_name)
         if not aws_creds:
