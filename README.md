@@ -25,10 +25,10 @@ Cloudit automates compliance with evidence collection. Cloudit streamlines vulne
 
 
 ### SIEM
-- [ ] Elastic Security
+- [X] Elastic Security
 
 
 ### EDR / Anti-Virus / Anti-Malware
 - [X] SentinelOne
-
+- [X] Elastic Security
 
