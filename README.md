@@ -15,11 +15,20 @@ Cloudit automates compliance with evidence collection. Cloudit streamlines vulne
 - [ ] Atlassian Jira
 
 ### Device Management
-- [ ] Jumpcloud
+- [X] Jumpcloud
 - [ ] Kandji
 
 ### Human Resources
 - [ ] TriNet
 - [ ] Bamboo
 - [ ] Paylocity
+
+
+### SIEM
+- [ ] Elastic Security
+
+
+### EDR / Anti-Virus / Anti-Malware
+- [X] SentinelOne
+
 
