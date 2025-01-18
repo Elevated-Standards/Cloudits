@@ -1,3 +1,9 @@
+####################################
+# Auditor - A-lign ID's: 
+#    1. P-13 - List of all infrastructure changes (e.g. changes to the configurations of the firewall/security groups, router, adding and removing servers, and other production network security controls)
+# Auditor - 
+# Auditor - 
+####################################
 import os
 import subprocess
 import datetime
