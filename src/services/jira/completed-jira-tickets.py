@@ -2,7 +2,7 @@ import requests
 import json
 import os
 from datetime import datetime
-from credentials.jira import ATLASSIAN_DOMAIN, ATLASSIAN_EMAIL, ATLASSIAN_API_TOKEN
+from utils.jira_utils import ATLASSIAN_DOMAIN, ATLASSIAN_EMAIL, ATLASSIAN_API_TOKEN
 
 
 

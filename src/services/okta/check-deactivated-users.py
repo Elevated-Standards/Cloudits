@@ -2,7 +2,7 @@ import os
 import json
 import requests
 from datetime import datetime
-from credentials.okta import OKTA_DOMAIN, OKTA_API_TOKEN
+from utils.okta_utils import OKTA_DOMAIN, OKTA_API_TOKEN
 
 # Create the output directory if it doesn't exist
 output_dir = f"lists/{datetime.now().year}/okta"
