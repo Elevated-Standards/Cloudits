@@ -65,3 +65,17 @@ if __name__ == "__main__":
     isolation_events = fetch_isolation_events()
     if isolation_events:
         save_to_file(isolation_events, "isolation_events.json")
+
+
+###############################################################
+# Framework: 
+# - SOC 2: CC#.#, CC#.#
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - <Placeholder> ID's: 
+# - R-### - 
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################

@@ -1,4 +1,4 @@
-from utils.utils import *
+from utils.project import *
 from utils.aws_utils import *
 
 # Fetch shared date information and base directory

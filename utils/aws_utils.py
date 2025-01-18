@@ -3,7 +3,7 @@ import subprocess
 import json
 from datetime import datetime, timezone, timedelta
 from calendar import monthrange
-from utils.utils import *
+from utils.project import *
 def get_aws_credentials(environment):
     regions = {
         'commercial': 'us-east-1',
@@ -51,4 +51,3 @@ def write_to_json(data, category, subcategory, system="aws"):
     with open(file_name, 'w') as file:
         json.dump(data, file, indent=4)
     print(f"Data written to {file_name}")
-    

@@ -67,3 +67,16 @@ if __name__ == "__main__":
     config_change_logs = fetch_siem_edr_config_changes()
     if config_change_logs:
         save_to_file(config_change_logs, "siem_edr_config_changes.json")
+
+###############################################################
+# Framework: 
+# - SOC 2: CC#.#, CC#.#
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - <Placeholder> ID's: 
+# - R-### - 
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################

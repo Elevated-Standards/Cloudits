@@ -1,17 +1,5 @@
 # Purpose: Provide Evidence for AWS Data & Storage Related Services.#
 #####################################################################
-# Framework: 
-# - SOC 2: CC2.1, PI1.2
-# - ISO 27001: A.#.#
-###############################################################
-# Auditor 1 - A-Lign ID's: 
-# - R-1039 - Evidence that edit checks are in place to prevent incomplete or incorrect data from being entered into the production system
-# - 
-###############################################################
-# Auditor 2 - <Placeholder> ID's: 
-# - 
-###############################################################
-
 import os
 import subprocess
 import datetime, timezone, timedelta
@@ -19,6 +7,8 @@ import json
 import sys
 from utils.aws_utils import *
 from output_environments.dataandstorage import *
+from utils.project import *
+
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -342,3 +332,16 @@ def main():
 # Execute main function
 if __name__ == "__main__":
     main()
+    
+###############################################################
+# Framework: 
+# - SOC 2: CC2.1, PI1.2
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - A-Lign ID's: 
+# - R-1039 - Evidence that edit checks are in place to prevent incomplete or incorrect data from being entered into the production system
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################

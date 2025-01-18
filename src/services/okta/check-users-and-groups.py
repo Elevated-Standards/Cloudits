@@ -41,3 +41,16 @@ with open(output_file, 'w') as f:
     json.dump(output_data, f, indent=4)
 
 print(f"Users and their groups have been saved to {output_file}")
+
+###############################################################
+# Framework: 
+# - SOC 2: CC#.#, CC#.#
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - <Placeholder> ID's: 
+# - R-### - 
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################

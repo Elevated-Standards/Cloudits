@@ -7,6 +7,8 @@ import json
 import sys
 from utils.aws_utils import *
 from output_environments.security import *
+from utils.project import *
+
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -323,3 +325,16 @@ def main():
     print("AWS GuardDuty and IAM configuration evidence collection completed for all environments.")
 if __name__ == "__main__":
     main()
+
+###############################################################
+# Framework: 
+# - SOC 2: CC#.#, CC#.#
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - <Placeholder> ID's: 
+# - R-### - 
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################
