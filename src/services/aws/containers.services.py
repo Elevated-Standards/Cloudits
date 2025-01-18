@@ -2,10 +2,11 @@
 ################################################################
 import os
 import subprocess
-import datetime
+import datetime, timezone, timedelta 
 import json
 import sys
 from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
+
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -16,11 +17,12 @@ enable_environments = {
     'federal': False      # Set to False to disable 'federal'
 }
 
-YEAR = datetime.datetime.now().year
-MONTH = datetime.datetime.now().strftime('%B')
-DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
+YEAR = datetime.now().year  # Current year
+MONTH = datetime.now().strftime('%B')  # Current month name
+DAY = datetime.now().day  # Current day of the month
+START_DATE = (datetime.now(timezone.utc) - timedelta(days=DAY)).isoformat()  # Start date: first day of the month
+END_DATE = datetime.now(timezone.utc).strftime("%H:%M:%SZT%Y-%m-%d")  # End date: current date in UTC
+
 
 # Base directory for evidence artifacts
 BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")

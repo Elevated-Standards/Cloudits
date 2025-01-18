@@ -1,17 +1,22 @@
 import requests
-import json
-from datetime import datetime
-import os
-from utils.jc_utils import JC_API_KEY, JC_URL
+from datetime import datetime, timezone
+from utils.jc_utils import (
+    JC_URL,
+    get_base_dir,
+    get_current_date_info,
+    get_headers,
+    write_to_json  # Import the generic write function
+)
 
+date_info = get_current_date_info()
+BASE_DIR = get_base_dir()
+YEAR = date_info["year"]
+MONTH = date_info["month"]
+END_DATE = date_info["end_date"]
 def fetch_device_compliance():
     """Fetch compliance status of managed devices."""
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "x-api-key": JC_API_KEY
-    }
-    response = requests.get(f"{JC_URL}/v2/systems", headers=headers)
+    headers = get_headers()
+    response = requests.get(f"{JC_URL}systems", headers=headers)
     if response.status_code == 200:
         return response.json()
     else:
@@ -34,20 +39,11 @@ def process_compliance_data(devices):
         })
     return compliance_data
 
-def write_compliance_data_to_json(compliance_data):
-    """Write compliance data to a JSON file."""
-    current_year = datetime.now().year
-    directory = f"/evidence-artifacts/{current_year}/commercial/jumpcloud/compliance-status/"
-    os.makedirs(directory, exist_ok=True)  # Ensure directory exists
-    file_name = f"{directory}Jumpcloud_Compliance_Status_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-    with open(file_name, 'w') as file:
-        json.dump(compliance_data, file, indent=4)
-    print(f"Compliance data written to {file_name}")
-
 if __name__ == "__main__":
     devices = fetch_device_compliance()
     if devices:
         compliance_data = process_compliance_data(devices)
-        write_compliance_data_to_json(compliance_data)
+        # Use the generic `write_to_json` function
+        write_to_json(compliance_data, 'identity_and_access', 'compliance-status')
     else:
         print("No managed devices found or failed to fetch devices.")
