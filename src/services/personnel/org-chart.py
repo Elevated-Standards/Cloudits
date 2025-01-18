@@ -9,7 +9,7 @@ API_KEY = os.getenv('TRINET_API_KEY')
 API_SECRET = os.getenv('TRINET_API_SECRET')
 
 # Set your Company ID
-COMPANY_ID = "CJ6"
+COMPANY_ID = ""
 
 # API endpoints
 TOKEN_URL = "https://api.trinet.com/oauth/accesstoken?grant_type=client_credentials"
