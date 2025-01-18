@@ -45,9 +45,9 @@ def write_to_json(data, category, subcategory, system="Jumpcloud"):
 
     Args:
         data: Data to write
-        category: Main category (e.g., 'identity_and_access')
-        subcategory: Subcategory folder name (e.g., 'login-events')
-        system: System Name (default: 'Jumpcloud')
+        category: Main category 
+        subcategory: Subcategory folder name 
+        system: System Name 
     """
     directory = f"{get_base_dir()}/{category}/{system}/{subcategory}/{datetime.now().year}/{datetime.now().strftime('%B')}/"
     os.makedirs(directory, exist_ok=True)

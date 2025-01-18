@@ -1,7 +1,9 @@
 import os
 import subprocess
 import json
-
+from datetime import datetime, timezone, timedelta
+from calendar import monthrange
+from utils.utils import *
 def get_aws_credentials(environment):
     regions = {
         'commercial': 'us-east-1',
@@ -32,6 +34,21 @@ def run_command(command):
         print(f"Command failed: {' '.join(command)}\nError: {e}")
         return {}
 
-def ensure_directories_exist(file_paths):
-    for file_path in file_paths:
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+def write_to_json(data, category, subcategory, system="aws"):
+    """
+    Write data to a JSON file with standardized naming and directory structure.
+
+    Args:
+        data: Data to write
+        category: Main category 
+        subcategory: Subcategory folder name 
+        system: System Name 
+    """
+    directory = f"{get_base_dir()}/{category}/{system}/{subcategory}/{datetime.now().year}/{datetime.now().strftime('%B')}/"
+    os.makedirs(directory, exist_ok=True)
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    file_name = f"{directory}{timestamp}_{subcategory}.json"
+    with open(file_name, 'w') as file:
+        json.dump(data, file, indent=4)
+    print(f"Data written to {file_name}")
+    
