@@ -84,6 +84,9 @@ def run_command(command):
 
 # Function to fetch all DB instances and their details
 def fetch_db_instances(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     list_data = run_command(['aws', 'rds', 'describe-db-instances', '--region', config['region'], '--output', 'json'])
     detailed_data = []
     for db_instance in list_data['DBInstances']:
@@ -95,6 +98,9 @@ def fetch_db_instances(config, output_file):
 
 # Function to fetch all DB snapshots and their details
 def fetch_db_snapshots(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     list_data = run_command(['aws', 'rds', 'describe-db-snapshots', '--region', config['region'], '--output', 'json'])
     detailed_data = []
     for snapshot in list_data['DBSnapshots']:
@@ -106,6 +112,9 @@ def fetch_db_snapshots(config, output_file):
 
 # Function to fetch all DB clusters and their details
 def fetch_db_clusters(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     list_data = run_command(['aws', 'rds', 'describe-db-clusters', '--region', config['region'], '--output', 'json'])
     detailed_data = []
     for db_cluster in list_data.get('DBClusters', []):
@@ -117,6 +126,9 @@ def fetch_db_clusters(config, output_file):
 
 # Function to fetch all DB security groups and their details
 def fetch_db_security_groups(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     list_data = run_command(['aws', 'rds', 'describe-db-security-groups', '--region', config['region'], '--output', 'json'])
     detailed_data = []
     for db_sg in list_data.get('DBSecurityGroups', []):
@@ -128,12 +140,18 @@ def fetch_db_security_groups(config, output_file):
 
 # Function to fetch all DB subnet groups and their details
 def fetch_db_subnet_groups(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     list_data = run_command(['aws', 'rds', 'describe-db-subnet-groups', '--region', config['region'], '--output', 'json'])
     with open(output_file, 'w') as f:
         json.dump(list_data['DBSubnetGroups'], f, indent=4)
 
 # Function to fetch DB log files for each DB instance
 def fetch_db_log_files(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     db_instances = run_command(['aws', 'rds', 'describe-db-instances', '--region', config['region'], '--output', 'json'])
     log_files_data = {}
     for db_instance in db_instances['DBInstances']:
@@ -145,12 +163,18 @@ def fetch_db_log_files(config, output_file):
 
 # Function to fetch all certificates and their details
 def fetch_certificates(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     list_data = run_command(['aws', 'rds', 'describe-certificates', '--region', config['region'], '--output', 'json'])
     with open(output_file, 'w') as f:
         json.dump(list_data['Certificates'], f, indent=4)
 
 # EBS Functions
 def fetch_ebs_volumes(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     print("Fetching EBS volumes...")
     volumes = run_command(['aws', 'ec2', 'describe-volumes', '--region', config['region'], '--output', 'json'])
     detailed_volumes = []
@@ -162,6 +186,9 @@ def fetch_ebs_volumes(config, output_file):
         json.dump(detailed_volumes, f, indent=4)
 
 def fetch_ebs_snapshots(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     print("Fetching EBS snapshots...")
     snapshots = run_command(['aws', 'ec2', 'describe-snapshots', '--owner-ids', 'self', '--region', config['region'], '--output', 'json'])
     detailed_snapshots = []
@@ -173,6 +200,9 @@ def fetch_ebs_snapshots(config, output_file):
         json.dump(detailed_snapshots, f, indent=4)
 
 def fetch_ebs_lifecycle_policies(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     print("Fetching EBS lifecycle policies...")
     policies = run_command(['aws', 'dlm', 'get-lifecycle-policies', '--region', config['region'], '--output', 'json'])
     with open(output_file, 'w') as f:
@@ -180,6 +210,9 @@ def fetch_ebs_lifecycle_policies(config, output_file):
 
 # EFS Functions
 def fetch_efs_file_systems(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     print("Fetching EFS file systems...")
     file_systems = run_command(['aws', 'efs', 'describe-file-systems', '--region', config['region'], '--output', 'json'])
     detailed_file_systems = []
@@ -191,6 +224,9 @@ def fetch_efs_file_systems(config, output_file):
         json.dump(detailed_file_systems, f, indent=4)
 
 def fetch_efs_lifecycle_policies(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     print("Fetching EFS lifecycle policies...")
     file_systems = run_command(['aws', 'efs', 'describe-file-systems', '--region', config['region'], '--output', 'json'])
     lifecycle_policies = []
@@ -202,6 +238,9 @@ def fetch_efs_lifecycle_policies(config, output_file):
         json.dump(lifecycle_policies, f, indent=4)
 
 def fetch_efs_access_points(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
     print("Fetching EFS access points...")
     access_points = run_command(['aws', 'efs', 'describe-access-points', '--region', config['region'], '--output', 'json'])
     detailed_access_points = []
@@ -211,6 +250,49 @@ def fetch_efs_access_points(config, output_file):
         detailed_access_points.append(details)
     with open(output_file, 'w') as f:
         json.dump(detailed_access_points, f, indent=4)
+
+# RDS Evidence Collection Functions
+def fetch_rds_validation_logs(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
+    print("Fetching RDS validation logs...")
+    db_instances = run_command(['aws', 'rds', 'describe-db-instances', '--region', config['region'], '--output', 'json'])
+    log_files_data = {}
+    for db_instance in db_instances['DBInstances']:
+        db_instance_id = db_instance['DBInstanceIdentifier']
+        logs = run_command(['aws', 'rds', 'describe-db-log-files', '--db-instance-identifier', db_instance_id, '--output', 'json'])
+        for log_file in logs.get('DescribeDBLogFiles', []):
+            log_name = log_file['LogFileName']
+            log_content = run_command(['aws', 'rds', 'download-db-log-file-portion', '--db-instance-identifier', db_instance_id, '--log-file-name', log_name, '--output', 'text'])
+            log_files_data[db_instance_id] = {log_name: log_content}
+    with open(output_file, 'w') as f:
+        json.dump(log_files_data, f, indent=4)
+
+def fetch_rds_data(config, data_type, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
+    print(f"Fetching RDS {data_type}...")
+    command = ['aws', 'rds', f'describe-{data_type}', '--region', config['region'], '--output', 'json']
+    data = run_command(command)
+    with open(output_file, 'w') as f:
+        json.dump(data, f, indent=4)
+
+# DynamoDB Evidence Collection Functions
+def fetch_dynamodb_table_schema(config, output_file):
+    #######################################
+    # Framework(s): 
+    #######################################
+    print("Fetching DynamoDB table schema...")
+    tables = run_command(['aws', 'dynamodb', 'list-tables', '--region', config['region'], '--output', 'json'])
+    table_details = []
+    for table_name in tables.get('TableNames', []):
+        table_info = run_command(['aws', 'dynamodb', 'describe-table', '--table-name', table_name, '--region', config['region'], '--output', 'json'])
+        table_details.append(table_info)
+    with open(output_file, 'w') as f:
+        json.dump(table_details, f, indent=4)
+
 
 # Main function to execute each evidence collection task
 def main():
@@ -241,7 +323,9 @@ def main():
         fetch_db_subnet_groups(config, config['output_files']['db_subnet_groups'])
         fetch_db_log_files(config, config['output_files']['db_log_files'])
         fetch_certificates(config, config['output_files']['certificates'])
-
+        fetch_rds_validation_logs(config, config['output_files']['db_log_files'])
+        fetch_dynamodb_table_schema(config, config['output_files']['dynamodb_schema'])
+        
         # Collect evidence for EBS configurations
         fetch_ebs_volumes(config, config['output_files']['ebs_volumes'])
         fetch_ebs_snapshots(config, config['output_files']['ebs_snapshots'])
@@ -252,7 +336,6 @@ def main():
         fetch_efs_lifecycle_policies(config, config['output_files']['efs_lifecycle_policies'])
         fetch_efs_access_points(config, config['output_files']['efs_access_points'])
 
-    
     print("Evidence collection completed.")
 
 # Execute main function
