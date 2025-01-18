@@ -2,7 +2,6 @@ import requests
 import json
 import os
 from datetime import datetime, timezone, timedelta
-import schedule
 import time
 
 # Replace with your SentinelOne API token and URL
