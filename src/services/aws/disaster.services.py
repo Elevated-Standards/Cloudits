@@ -18,6 +18,7 @@ import datetime, timezone, timedelta
 import json
 import sys
 from utils.aws_utils import get_aws_credentials, ensure_directories_exist
+from output_environments.disaster import *
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -27,6 +28,7 @@ enable_environments = {
     'commercial': True,  # Set to False to disable 'commercial'
     'federal': False      # Set to False to disable 'federal'
 }
+
 
 YEAR = datetime.now().year  # Current year
 MONTH = datetime.now().strftime('%B')  # Current month name

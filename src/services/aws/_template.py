@@ -16,7 +16,7 @@ import subprocess
 import datetime, timezone, timedelta
 import json
 import sys
-from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
+from utils.aws_utils import *
 
 
 # Ensure the 'src' directory is in the Python module search path

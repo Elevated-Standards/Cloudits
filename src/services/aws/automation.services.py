@@ -5,13 +5,13 @@ import subprocess
 import datetime, timezone, timedelta
 import json
 import sys
-from utils.aws_utils import get_aws_credentials, run_command, ensure_directories_exist
-
+from utils.aws_utils import *
+from output_environments.automation import *
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-# Define toggles to enable or disable environments
+# Define toggles to enable or disable environment
 enable_environments = {
     'commercial': True,  # Set to False to disable 'commercial'
     'federal': False      # Set to False to disable 'federal'
