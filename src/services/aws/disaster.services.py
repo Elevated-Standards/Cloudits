@@ -1,12 +1,16 @@
 # Purpose: Provide Evidence for AWS Disaster Related Services.
 ###############################################################
 # Framework: 
-# - SOC 2: CC6.7
-# - ISO 27001: 
+# - SOC 2: CC6.7, CC4.1, CC6.1, CC6.2, CC6.3, CC7.5
+# - ISO 27001: A.8.13
 ###############################################################
-# Auditor - A-Lign ID's: R-1289 - Backup replication configurations and an example backup replication completion log and/or invoices or receipts from offsite backup vendor showing proof of backup rotations for the defined frequency
-#
-#
+# Auditor 1 - A-Lign ID's: 
+# - R-1289 - Backup replication configurations and an example backup replication completion log and/or invoices or receipts from offsite backup vendor showing proof of backup rotations for the defined frequency
+# - R-1131 - Backup restoration test results according to the organization defined frequency
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
 ###############################################################
 import os
 import subprocess
