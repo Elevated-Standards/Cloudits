@@ -8,203 +8,137 @@ from utils.aws_utils import get_aws_credentials, run_command, ensure_directories
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-# Define toggles to enable or disable environments
-enable_environments = {
-    'commercial': True,  # Set to False to disable 'commercial'
-    'federal': False      # Set to False to disable 'federal'
+# Toggle environment enablement
+ENABLE_ENVIRONMENTS = {
+    'commercial': True,  # Enable/disable 'commercial' environment
+    'federal': False     # Enable/disable 'federal' environment
 }
 
-YEAR = datetime.datetime.now().year
-MONTH = datetime.datetime.now().strftime('%B')
-DAY = datetime.datetime.now().day
-START_DATE = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=31)).isoformat()
-END_DATE = datetime.datetime.now(datetime.timezone.utc).isoformat()
+# Date constants
+CURRENT_DATETIME = datetime.datetime.now(datetime.timezone.utc)
+YEAR = CURRENT_DATETIME.year
+MONTH = CURRENT_DATETIME.strftime('%B')
+DAY = CURRENT_DATETIME.day
+START_DATE = (CURRENT_DATETIME - datetime.timedelta(days=31)).isoformat()
+END_DATE = CURRENT_DATETIME.isoformat()
 
-# Base directory for evidence artifacts
+# Base directory for evidence storage
 BASE_DIR = os.path.join(os.getcwd(), "evidence-artifacts")
 
-# Environment configuration for AWS credentials and output paths
-environments = {
+# AWS environment configurations
+ENVIRONMENTS = {
     'commercial': {
         'region': 'us-east-1',
         'output_files': {
-            # Change '{BASE_DIR}' to '{BASE_DIR}' (relative path)
-            'alarms': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_alarms.json",
-            'metrics': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_metrics.json",
-            'dashboards': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_dashboards.json",
-            'log_groups': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_log_groups.json",
-            'tags': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_tags.json",
-            'trails': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_trails.json",
-            'event_data_stores': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_event_data_stores.json",
-            'insights': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_insights.json",
-            'tags': f"{BASE_DIR}/commercial/systems/aws/{config['region']}/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_tags.json"
+            'alarms': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_alarms.json",
+            'metrics': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_metrics.json",
+            'dashboards': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_dashboards.json",
+            'log_groups': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_log_groups.json",
+            'tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_tags.json",
+            'trails': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_trails.json",
+            'event_data_stores': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_event_data_stores.json",
+            'insights': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_insights.json",
+            'config_changes': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-config_changes.json",
+            'cloudtrail_events': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_events.json"
         }
     },
     'federal': {
         'region': 'us-east-1',
         'output_files': {
-            # Use relative paths
-            'alarms': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_alarms.json",
-            'metrics': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_metrics.json",
-            'dashboards': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_dashboards.json",
-            'log_groups': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_log_groups.json",
-            'tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudwatch_tags.json",
-            'trails': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_trails.json",
-            'event_data_stores': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_event_data_stores.json",
-            'insights': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_insights.json",
-            'tags': f"{BASE_DIR}/federal/systems/aws/{config['region']}/{YEAR}/{END_DATE}-cloudtrail_tags.json"
+            'alarms': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_alarms.json",
+            'metrics': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_metrics.json",
+            'dashboards': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_dashboards.json",
+            'log_groups': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_log_groups.json",
+            'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudwatch_tags.json",
+            'trails': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_trails.json",
+            'event_data_stores': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_event_data_stores.json",
+            'insights': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_insights.json",
+            'config_changes': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-config_changes.json",
+            'cloudtrail_events': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-cloudtrail_events.json"
         }
     }
 }
 
-# Helper function to run AWS CLI commands
-def run_command(command):
+# Helper function to save data to file
+def save_data_to_file(data, file_path):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'w') as f:
+        json.dump(data, f, indent=4)
+
+# Fetch CloudTrail events
+def fetch_cloudtrail_events(config, output_file):
     try:
-        result = subprocess.run(command, capture_output=True, text=True, check=True)
-        return json.loads(result.stdout)
-    except subprocess.CalledProcessError as e:
-        print(f"Command failed: {' '.join(command)}\nError: {e}")
-        return {}
-
-# CloudWatch Evidence Collection Functions
-def fetch_alarms(config, output_file):
-    alarms_data = run_command(['aws', 'cloudwatch', 'describe-alarms', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(alarms_data, f, indent=4)
-
-def fetch_metrics(config, output_file):
-    metrics_data = run_command(['aws', 'cloudwatch', 'list-metrics', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(metrics_data, f, indent=4)
-
-def fetch_dashboards(config, output_file):
-    dashboards_data = run_command(['aws', 'cloudwatch', 'list-dashboards', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(dashboards_data, f, indent=4)
-
-def fetch_log_groups(config, output_file):
-    log_groups_data = run_command(['aws', 'logs', 'describe-log-groups', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(log_groups_data, f, indent=4)
-
-def fetch_cloudwatch_tags(config, output_file):
-    log_groups_data = run_command(['aws', 'logs', 'describe-log-groups', '--region', config['region'], '--output', 'json'])
-    tags_data = []
-    for log_group in log_groups_data.get('logGroups', []):
-        log_group_name = log_group['logGroupName']
-        tags = run_command(['aws', 'logs', 'list-tags-log-group', '--log-group-name', log_group_name, '--output', 'json'])
-        tags_data.append({'LogGroupName': log_group_name, 'Tags': tags.get('tags', {})})
-    with open(output_file, 'w') as f:
-        json.dump(tags_data, f, indent=4)
-
-# CloudTrail Evidence Collection Functions
-def fetch_trails(config, output_file):
-    trails_data = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(trails_data, f, indent=4)
-
-def fetch_event_data_stores(config, output_file):
-    event_data_stores_data = run_command(['aws', 'cloudtrail', 'list-event-data-stores', '--region', config['region'], '--output', 'json'])
-    with open(output_file, 'w') as f:
-        json.dump(event_data_stores_data, f, indent=4)
-
-
-def fetch_insights_selectors(config, output_file):
-    """
-    Fetch insight selectors for all trails in the specified region and save the data to a file.
-    """
-    try:
-        # List all trails in the specified region
-        trails_data = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
-        trails = trails_data.get('Trails', [])
-        
-        if not trails:
-            print(f"No trails found in region {config['region']}.")
-            return
-        
-        insights_data = []
-
-        for trail in trails:
-            trail_name = trail.get('Name')
-            if not trail_name:
-                print(f"Skipping trail with no name: {trail}")
-                continue
-
-            print(f"Processing trail: {trail_name}")
-
-            try:
-                # Fetch insight selectors for the current trail
-                insights_selectors = run_command(['aws', 'cloudtrail', 'get-insight-selectors', '--trail-name', trail_name, '--output', 'json'])
-                insights_data.append({
-                    'TrailName': trail_name,
-                    'InsightSelectors': insights_selectors.get('InsightSelectors', [])
-                })
-            except Exception as e:
-                print(f"Failed to fetch insight selectors for trail '{trail_name}': {e}")
-
-        # Save the insights data to a file
-        with open(output_file, 'w') as f:
-            json.dump(insights_data, f, indent=4)
-        print(f"Insight selectors data saved to {output_file}.")
-
+        events = run_command([
+            'aws', 'cloudtrail', 'lookup-events',
+            '--lookup-attributes', 'AttributeKey=EventSource,AttributeValue=ec2.amazonaws.com',
+            '--region', config['region'], '--output', 'json'
+        ])
+        save_data_to_file(events, output_file)
+        print(f"CloudTrail events saved to {output_file}")
     except Exception as e:
-        print(f"Error occurred while fetching insights: {e}")
+        print(f"Error fetching CloudTrail events: {e}")
 
+# Enable CloudTrail Insights
+def enable_cloudtrail_insights(config, output_file):
+    try:
+        trails = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
+        insights_status = []
+        for trail in trails.get('Trails', []):
+            trail_name = trail['Name']
+            try:
+                run_command([
+                    'aws', 'cloudtrail', 'put-insight-selectors',
+                    '--trail-name', trail_name,
+                    '--insight-selectors', '[{"InsightType":"ApiCallRateInsight"}]',
+                    '--region', config['region']
+                ])
+                insights_status.append({trail_name: "Enabled"})
+            except Exception as e:
+                print(f"Failed to enable insights for trail {trail_name}: {e}")
+        save_data_to_file(insights_status, output_file)
+    except Exception as e:
+        print(f"Error enabling CloudTrail Insights: {e}")
 
+# Fetch AWS Config changes
+def fetch_config_changes(config, output_file):
+    try:
+        resource_types = ['AWS::EC2::Instance', 'AWS::EC2::SecurityGroup', 'AWS::EC2::VPC']
+        changes = []
+        for resource_type in resource_types:
+            resource_changes = run_command([
+                'aws', 'configservice', 'get-resource-config-history',
+                '--resource-type', resource_type, '--region', config['region'], '--output', 'json'
+            ])
+            changes.append({resource_type: resource_changes})
+        save_data_to_file(changes, output_file)
+        print(f"AWS Config changes saved to {output_file}")
+    except Exception as e:
+        print(f"Error fetching AWS Config changes: {e}")
 
-
-def fetch_cloudtrail_tags(config, output_file):
-    trails_data = run_command(['aws', 'cloudtrail', 'list-trails', '--region', config['region'], '--output', 'json'])
-    tags_data = []
-    for trail in trails_data['Trails']:
-        trail_arn = trail['TrailARN']
-        trail_tags = run_command(['aws', 'cloudtrail', 'list-tags', '--resource-id-list', trail_arn, '--output', 'json'])
-        tags_data.append({
-            'TrailARN': trail_arn,
-            'Tags': trail_tags.get('ResourceTagList', [])
-        })
-    with open(output_file, 'w') as f:
-        json.dump(tags_data, f, indent=4)
-
-# Main function to execute each evidence collection task for enabled environments
+# Main function
 def main():
-    for env_name, config in environments.items():
-        # Check if the environment is enabled
-        if not enable_environments.get(env_name, False):
-            print(f"Skipping environment '{env_name}' as it is disabled.")
+    for env_name, config in ENVIRONMENTS.items():
+        if not ENABLE_ENVIRONMENTS.get(env_name, False):
+            print(f"Skipping disabled environment: {env_name}")
             continue
 
-        # Fetch AWS credentials for the current environment
         aws_creds = get_aws_credentials(env_name)
         if not aws_creds:
-            print(f"Skipping environment '{env_name}' due to credential issues.")
+            print(f"Skipping {env_name}: Unable to retrieve credentials.")
             continue
 
-        # Set AWS environment variables for subprocess commands
-        os.environ['AWS_ACCESS_KEY_ID'] = aws_creds['access_key']
-        os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
-        os.environ['AWS_DEFAULT_REGION'] = aws_creds['region']
+        os.environ.update({
+            'AWS_ACCESS_KEY_ID': aws_creds['access_key'],
+            'AWS_SECRET_ACCESS_KEY': aws_creds['secret_key'],
+            'AWS_DEFAULT_REGION': config['region']
+        })
 
-        ensure_directories_exist(config['output_files'].values())
+        print(f"Collecting evidence for environment: {env_name}")
+        # Fetch CloudTrail and Config evidence
+        fetch_cloudtrail_events(config, config['output_files']['cloudtrail_events'])
+        enable_cloudtrail_insights(config, config['output_files']['insights'])
+        fetch_config_changes(config, config['output_files']['config_changes'])
+        print(f"Completed evidence collection for: {env_name}")
 
-        # Collect evidence for AWS CloudWatch configurations
-        fetch_alarms(config, config['output_files']['alarms'])
-        fetch_metrics(config, config['output_files']['metrics'])
-        fetch_dashboards(config, config['output_files']['dashboards'])
-        fetch_log_groups(config, config['output_files']['log_groups'])
-        fetch_cloudwatch_tags(config, config['output_files']['tags'])
-
-        # Collect evidence for AWS CloudTrail configurations
-        fetch_trails(config, config['output_files']['trails'])
-        fetch_event_data_stores(config, config['output_files']['event_data_stores'])
-        fetch_insights_selectors(config, config['output_files']['insights'])
-        fetch_cloudtrail_tags(config, config['output_files']['tags'])
-
-        
-        print(f"Completed evidence collection for environment '{env_name}'.")
-
-    print("AWS CloudWatch and CloudTrail configuration evidence collection completed.")
-
-# Execute main function
 if __name__ == "__main__":
     main()
