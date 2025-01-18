@@ -5,6 +5,8 @@ import json
 import sys
 from utils.aws_utils import *
 from output_environments.simpleemail import *
+from utils.project import *
+
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -126,3 +128,16 @@ def main():
 # Execute main function
 if __name__ == "__main__":
     main()
+
+###############################################################
+# Framework: 
+# - SOC 2: CC#.#, CC#.#
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - <Placeholder> ID's: 
+# - R-### - 
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################

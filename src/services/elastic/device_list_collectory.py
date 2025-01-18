@@ -70,3 +70,15 @@ if __name__ == "__main__":
         # Extract device details
         device_details = extract_device_details(agents_data)
         save_to_file(device_details, "elastic_agents.json")
+###############################################################
+# Framework: 
+# - SOC 2: CC#.#, CC#.#
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - <Placeholder> ID's: 
+# - R-### - 
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################

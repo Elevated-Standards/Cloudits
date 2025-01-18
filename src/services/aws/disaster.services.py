@@ -1,17 +1,5 @@
 # Purpose: Provide Evidence for AWS Disaster Related Services.
 ###############################################################
-# Framework: 
-# - SOC 2: CC6.7, CC4.1, CC6.1, CC6.2, CC6.3, CC7.5
-# - ISO 27001: A.8.13
-###############################################################
-# Auditor 1 - A-Lign ID's: 
-# - R-1289 - Backup replication configurations and an example backup replication completion log and/or invoices or receipts from offsite backup vendor showing proof of backup rotations for the defined frequency
-# - R-1131 - Backup restoration test results according to the organization defined frequency
-# - 
-###############################################################
-# Auditor 2 - <Placeholder> ID's: 
-# - 
-###############################################################
 import os
 import subprocess
 import datetime, timezone, timedelta
@@ -19,6 +7,8 @@ import json
 import sys
 from utils.aws_utils import get_aws_credentials, ensure_directories_exist
 from output_environments.disaster import *
+from utils.project import *
+
 
 # Ensure the 'src' directory is in the Python module search path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -196,3 +186,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+###############################################################
+# Framework: 
+# - SOC 2: CC6.7, CC4.1, CC6.1, CC6.2, CC6.3, CC7.5
+# - ISO 27001: A.8.13
+###############################################################
+# Auditor 1 - A-Lign ID's: 
+# - R-1289 - Backup replication configurations and an example backup replication completion log and/or invoices or receipts from offsite backup vendor showing proof of backup rotations for the defined frequency
+# - R-1131 - Backup restoration test results according to the organization defined frequency
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################
