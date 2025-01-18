@@ -1,5 +1,17 @@
 # Purpose: Provide Evidence for AWS Data & Storage Related Services.#
 #####################################################################
+# Framework: 
+# - SOC 2: CC2.1, PI1.2
+# - ISO 27001: A.#.#
+###############################################################
+# Auditor 1 - A-Lign ID's: 
+# - R-1039 - Evidence that edit checks are in place to prevent incomplete or incorrect data from being entered into the production system
+# - 
+###############################################################
+# Auditor 2 - <Placeholder> ID's: 
+# - 
+###############################################################
+
 import os
 import subprocess
 import datetime
