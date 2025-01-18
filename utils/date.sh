@@ -1,16 +1,17 @@
 #!/bin/bash
 
 # Get the current year
-YEAR=$(date +%Y)
+YEAR=$(date +"%Y")
 
 # Get the current month name
-MONTH=$(date +%B)
+MONTH=$(date +"%B")
 
 # Get the current day of the month
-DAY=$(date +%d)
+DAY=$(date +"%d")
 
-# Calculate the start date (31 days ago) in ISO 8601 format
-START_DATE=$(date -u -d "31 days ago" +"%Y-%m-%dT%H:%M:%SZ")
+# Calculate the start date as the first day of the current month
+# Get the current date, subtract days to get the previous month
+START_DATE=$(date -u -d "-$((DAY - 1)) days" +"%Y-%m-%dT%H:%M:%SZ")
 
 # Get the current date and time in ISO 8601 format
 END_DATE=$(date -u +"%H:%M:%SZT%Y-%m-%d")

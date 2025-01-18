@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta, timedelta
 
 # Atlassian (Jira) credentials
 ATLASSIAN_DOMAIN = os.getenv("ATLASSIAN_DOMAIN")

@@ -1,17 +1,23 @@
 import requests
-import json
-from datetime import datetime
-import os
-from utils.jc_utils import JC_API_KEY, JC_URL
+from datetime import datetime, timezone
+from utils.jc_utils import (
+    JC_URL,
+    get_base_dir,
+    get_current_date_info,
+    get_headers,
+    write_to_json  # Import the generic write function
+)
 
+# Fetch shared date information and base directory
+date_info = get_current_date_info()
+BASE_DIR = get_base_dir()
+YEAR = date_info["year"]
+MONTH = date_info["month"]
+END_DATE = date_info["end_date"]
 def fetch_applications():
     """Fetch all applications from JumpCloud."""
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "x-api-key": JC_API_KEY
-    }
-    response = requests.get(f"{JC_URL}/v2/applications", headers=headers)
+    headers = get_headers()
+    response = requests.get(f"{JC_URL}applications", headers=headers)
     if response.status_code == 200:
         return response.json()
     else:
@@ -20,28 +26,13 @@ def fetch_applications():
 
 def fetch_users_for_application(app_id):
     """Fetch users assigned to a specific application."""
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "x-api-key": JC_API_KEY
-    }
-    response = requests.get(f"{JC_URL}/v2/applications/{app_id}/users", headers=headers)
+    headers = get_headers()
+    response = requests.get(f"{JC_URL}applications/{app_id}/users", headers=headers)
     if response.status_code == 200:
         return response.json()
     else:
         print(f"Failed to fetch users for application {app_id}: {response.status_code} - {response.text}")
         return []
-
-def write_app_users_to_json(app_name, user_data):
-    """Write application user data to a JSON file."""
-    current_year = datetime.now().year
-    directory = f"/evidence-artifacts/{current_year}/commercial/jumpcloud/applications/"
-    os.makedirs(directory, exist_ok=True)  # Ensure directory exists
-    sanitized_app_name = "".join(c if c.isalnum() else "_" for c in app_name)
-    file_name = f"{directory}Jumpcloud_App_{sanitized_app_name}_Users_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-    with open(file_name, 'w') as file:
-        json.dump(user_data, file, indent=4)
-    print(f"User list for application '{app_name}' written to {file_name}")
 
 if __name__ == "__main__":
     applications = fetch_applications()
@@ -50,7 +41,7 @@ if __name__ == "__main__":
             app_id = app.get("id")
             app_name = app.get("name", "UnknownApp")
             print(f"Processing application: {app_name} (ID: {app_id})")
-            
+
             users = fetch_users_for_application(app_id)
             if users:
                 # Extract last sign-on details, if available
@@ -62,7 +53,14 @@ if __name__ == "__main__":
                         "username": user.get("username"),
                         "last_sign_on": user.get("last_sign_on", "Never")
                     })
-                write_app_users_to_json(app_name, enriched_users)
+
+                # Use the generic `write_to_json` function
+                sanitized_app_name = "".join(c if c.isalnum() else "_" for c in app_name)
+                write_to_json(
+                    enriched_users, 
+                    'identity_and_access', 
+                    f'applications/{sanitized_app_name}_users'
+                )
             else:
                 print(f"No users found for application: {app_name}")
     else:
