@@ -47,7 +47,8 @@ environments = {
             'recovery_points': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-recovery_points.json",
             'tags': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-backup_tags.json",
             'replication_configs': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-replication_configs.json",
-            'replication_logs': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-replication_logs.json"
+            'replication_logs': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-replication_logs.json",
+            'restoration_tests': f"{BASE_DIR}/commercial/systems/aws/{YEAR}/{MONTH}/{END_DATE}-restoration_tests.json"
         }
     },
     'federal': {
@@ -58,7 +59,8 @@ environments = {
             'recovery_points': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-recovery_points.json",
             'tags': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-backup_tags.json",
             'replication_configs': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-replication_configs.json",
-            'replication_logs': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-replication_logs.json"
+            'replication_logs': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-replication_logs.json",
+            'restoration_tests': f"{BASE_DIR}/federal/systems/aws/{YEAR}/{MONTH}/{END_DATE}-restoration_tests.json"
         }
     }
 }
@@ -117,20 +119,6 @@ def fetch_recovery_points(config, output_file):
     with open(output_file, 'w') as f:
         json.dump(recovery_points_data, f, indent=4)
 
-# Fetch tags for each backup vault
-def fetch_backup_tags(config, output_file):
-    vaults_data = run_command(['aws', 'backup', 'list-backup-vaults', '--region', config['region'], '--output', 'json'])
-    tags_data = []
-    for vault in vaults_data.get('BackupVaultList', []):
-        vault_arn = vault['BackupVaultArn']
-        vault_tags = run_command(['aws', 'backup', 'list-tags', '--resource-arn', vault_arn, '--region', config['region'], '--output', 'json'])
-        tags_data.append({
-            'BackupVaultArn': vault_arn,
-            'Tags': vault_tags.get('Tags', {})
-        })
-    with open(output_file, 'w') as f:
-        json.dump(tags_data, f, indent=4)
-
 # Fetch backup replication configurations
 def fetch_replication_configs(config, output_file):
     replication_configs = run_command(['aws', 'backup', 'describe-region-settings', '--region', config['region'], '--output', 'json'])
@@ -148,21 +136,46 @@ def fetch_replication_logs(config, output_file):
     with open(output_file, 'w') as f:
         json.dump(replication_logs, f, indent=4)
 
+# Fetch restoration test results
+def fetch_restoration_tests(config, output_file):
+    restoration_tests = []
+    recovery_points = run_command([
+        'aws', 'backup', 'list-recovery-points-by-backup-vault',
+        '--backup-vault-name', 'default',  # Replace with your backup vault name
+        '--region', config['region'],
+        '--by-created-after', START_DATE,
+        '--by-created-before', END_DATE,
+        '--output', 'json'
+    ])
+    for recovery_point in recovery_points.get('RecoveryPoints', []):
+        recovery_point_arn = recovery_point['RecoveryPointArn']
+        try:
+            restore_job = run_command([
+                'aws', 'backup', 'start-restore-job',
+                '--recovery-point-arn', recovery_point_arn,
+                '--iam-role-arn', '<restore-role-arn>',  # Replace with your IAM role ARN
+                '--metadata', '{"restoreOptionKey": "restoreOptionValue"}',  # Replace with actual metadata
+                '--region', config['region'],
+                '--output', 'json'
+            ])
+            restoration_tests.append(restore_job)
+        except Exception as e:
+            print(f"Failed restoration test for Recovery Point {recovery_point_arn}: {str(e)}")
+    with open(output_file, 'w') as f:
+        json.dump(restoration_tests, f, indent=4)
+
 # Main function to execute each evidence collection task for both environments
 def main():
     for env_name, config in environments.items():
-        # Check if the environment is enabled
         if not enable_environments.get(env_name, False):
             print(f"Environment '{env_name}' is disabled. Skipping...")
             continue
 
-        # Fetch AWS credentials for the current environment
         aws_creds = get_aws_credentials(env_name)
         if not aws_creds:
             print(f"Skipping environment '{env_name}' due to credential issues.")
             continue
         
-        # Set AWS environment variables for subprocess commands
         os.environ['AWS_ACCESS_KEY_ID'] = aws_creds['access_key']
         os.environ['AWS_SECRET_ACCESS_KEY'] = aws_creds['secret_key']
         os.environ['AWS_DEFAULT_REGION'] = aws_creds['region']
@@ -173,12 +186,11 @@ def main():
         fetch_backup_vaults(config, config['output_files']['backup_vaults'])
         fetch_backup_plans(config, config['output_files']['backup_plans'])
         fetch_recovery_points(config, config['output_files']['recovery_points'])
-        fetch_backup_tags(config, config['output_files']['tags'])
         fetch_replication_configs(config, config['output_files']['replication_configs'])
         fetch_replication_logs(config, config['output_files']['replication_logs'])
+        fetch_restoration_tests(config, config['output_files']['restoration_tests'])
 
     print("AWS Backup configuration evidence collection completed for both environments.")
 
-# Execute main function
 if __name__ == "__main__":
     main()
