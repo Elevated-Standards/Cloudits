@@ -46,8 +46,8 @@ jobs:
 
     - name: PREP
       run: |
-        chmod +x $GITHUB_WORKSPACE/utils/date.sh
-        bash $GITHUB_WORKSPACE/utils/date.sh
+        chmod +x $GITHUB_WORKSPACE/.github/workflows/scripts/date.sh
+        bash $GITHUB_WORKSPACE/.github/workflows/scripts/date.sh
         mkdir -p $GITHUB_WORKSPACE/evidence-artifacts/systems/aws/
  
         
