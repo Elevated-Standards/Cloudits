@@ -23,15 +23,18 @@ jobs:
         role-session-name: evidencecollection
         aws-region: ${{ env.AWS_REGION }}
 
+
     - name: Verify code checkout
       run: |
         echo "Working Directory: $(pwd)"
         ls -alR
 
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install boto3
+
 
     - name: Debug Environment Variables
       run: |
@@ -40,12 +43,13 @@ jobs:
         echo "AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}"
         echo "AWS_REGION=${AWS_REGION}"
 
+
     - name: PREP
       run: |
         chmod +x $GITHUB_WORKSPACE/utils/date.sh
-        bash $GITHUB_WORKSPACE//utils/date.sh
+        bash $GITHUB_WORKSPACE/utils/date.sh
         mkdir -p $GITHUB_WORKSPACE/evidence-artifacts/systems/aws/
-    
+ 
         
     - name: Run evidence collection script
       run: |
@@ -59,6 +63,7 @@ jobs:
         python src/services/aws/networking.services.py
         python src/services/aws/security.services.py
         # python src/services/aws/simpleemail.services.py
+
 
     - name: Commit and Push Results
       run: |
