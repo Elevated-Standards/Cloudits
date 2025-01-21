@@ -37,9 +37,11 @@ jobs:
 
     - name: PREP
       run: |
-        bash ./utils/date.sh
+        chmod +x $GITHUB_WORKSPACE/utils/date.sh
+        bash $GITHUB_WORKSPACE//utils/date.sh
         mkdir -p $GITHUB_WORKSPACE/evidence-artifacts/systems/aws/
-
+    
+        
     - name: Run evidence collection script
       run: |
         export PYTHONPATH="$PYTHONPATH:$(pwd)/src"
