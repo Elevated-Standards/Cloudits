@@ -37,7 +37,7 @@ jobs:
 
     - name: PREP
       run: |
-        bash utils/date.sh
+        bash ./utils/date.sh
         mkdir -p $GITHUB_WORKSPACE/evidence-artifacts/systems/aws/
 
     - name: Run evidence collection script
