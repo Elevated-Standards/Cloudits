@@ -23,6 +23,11 @@ jobs:
         role-session-name: evidencecollection
         aws-region: ${{ env.AWS_REGION }}
 
+    - name: Verify code checkout
+      run: |
+        echo "Working Directory: $(pwd)"
+        ls -alR
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
