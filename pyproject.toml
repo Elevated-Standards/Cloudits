@@ -2,20 +2,34 @@
 requires = ["hatchling", "incremental"]
 build-backend = "hatchling.build"
 
+
+
+license = {text = "MIT"}
+keywords = ["cloud", "its", "management"]
+
 [project]
 name = "Cloudits"
 dynamic = ["version"]
+description = "Your project description"
+readme = "README.md"
+license = {text = "Apache 2"}
+keywords = ["cloud", "its", "management"]
 dependencies = [
-    "incremental>=24.7.2"  
+     "incremental>=24.7.2"
 ]
 maintainers = [
     {name = "Austin Songer", email = "austin@songer.me"}  
 ]
 
-readme = "README.md"
-description = "Your project description"
-license = {text = "MIT"}
-keywords = ["cloud", "its", "management"]
+[tool.hatch.version]
+path = "src/cloudits/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/cloudits",
+]
 
 [tool.hatch.version]
 source = "incremental"
+
+[tool.incremental]
