@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Cloudits"
+dynamic = ["version"]
+dependencies = [
+    "incremental>=24.7.2"  # Ensure the dependency is properly formatted
+]
+maintainers = [
+    {name = "Austin Songer", email = "austin@songer.me"}  # Correct syntax for maintainers
+]
+
+[tool.incremental]
+
+
+description = "Your project description"
+license = {text = "MIT"}
+keywords = ["cloud", "its", "management"]
+
