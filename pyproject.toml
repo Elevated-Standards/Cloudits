@@ -1,21 +1,20 @@
 [build-system]
-requires = ["setuptools", "incremental"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "incremental"]
+build-backend = "hatchling.build"
 
 [project]
 name = "Cloudits"
 dynamic = ["version"]
 dependencies = [
-    "incremental>=24.7.2"  # Ensure the dependency is properly formatted
+    "incremental>=24.7.2"  
 ]
 maintainers = [
-    {name = "Austin Songer", email = "austin@songer.me"}  # Correct syntax for maintainers
+    {name = "Austin Songer", email = "austin@songer.me"}  
 ]
-
-[tool.incremental]
-
 
 description = "Your project description"
 license = {text = "MIT"}
 keywords = ["cloud", "its", "management"]
 
+[tool.hatch.version]
+source = "incremental"
