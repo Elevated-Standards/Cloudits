@@ -12,6 +12,7 @@ maintainers = [
     {name = "Austin Songer", email = "austin@songer.me"}  
 ]
 
+readme = "README.md"
 description = "Your project description"
 license = {text = "MIT"}
 keywords = ["cloud", "its", "management"]
