@@ -2,11 +2,6 @@
 requires = ["hatchling", "incremental"]
 build-backend = "hatchling.build"
 
-
-
-license = {text = "MIT"}
-keywords = ["cloud", "its", "management"]
-
 [project]
 name = "Cloudits"
 dynamic = ["version"]
@@ -17,19 +12,25 @@ keywords = ["cloud", "its", "management"]
 dependencies = [
      "incremental>=24.7.2"
 ]
+
+
+
 maintainers = [
     {name = "Austin Songer", email = "austin@songer.me"}  
 ]
 
 [tool.hatch.version]
 path = "src/cloudits/__init__.py"
+source = "incremental"
+search-paths = ["src"]
+
 
 [tool.hatch.build.targets.sdist]
 include = [
     "src/cloudits",
 ]
 
-[tool.hatch.version]
-source = "incremental"
+[project.entry-points.hatch]
+incremental = "incremental._hatch"
 
 [tool.incremental]
