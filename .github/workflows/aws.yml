@@ -64,6 +64,11 @@ jobs:
         python src/services/aws/security.services.py
         # python src/services/aws/simpleemail.services.py
 
+    - name: Check signed commits in PR
+      uses: 1Password/check-signed-commits-action@v1
+      with:
+        comment: |
+         Unsigned Commit in PR
 
     - name: Commit and Push Results
       run: |
