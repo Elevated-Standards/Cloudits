@@ -13,10 +13,13 @@ Cloudit automates compliance with evidence collection. Cloudit streamlines vulne
 
 ### SaaS - Project Management / Task Tracking
 - [ ] Atlassian Jira
+- [ ] Trello
 
 ### Device Management
 - [X] Jumpcloud
 - [ ] Kandji
+- [ ] Intune
+- [ ] JAMF
 
 ### Human Resources
 - [ ] TriNet
@@ -26,9 +29,12 @@ Cloudit automates compliance with evidence collection. Cloudit streamlines vulne
 
 ### SIEM
 - [X] Elastic Security
+- [ ] Splunk
+- [ ] Sumologic
 
 
 ### EDR / Anti-Virus / Anti-Malware
 - [X] SentinelOne
 - [X] Elastic Security
+- [ ] Crowdstrike
 
