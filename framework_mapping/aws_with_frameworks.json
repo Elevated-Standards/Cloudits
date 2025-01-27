@@ -1,0 +1,3877 @@
+[
+    {
+        "function": "describe_repositories",
+        "result_key": "repositories",
+        "service": "ecr",
+        "fields": [
+            "repositoryName",
+            "repositoryArn",
+            "repositoryUri",
+            "createdAt",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_instances",
+        "parameters": {
+            "Filters": [
+                {
+                    "Name": "instance-state-name",
+                    "Values": [
+                        "running"
+                    ]
+                }
+            ]
+        },
+        "result_key": "Reservations",
+        "service": "ec2",
+        "fields": [
+            "instanceId",
+            "instanceType",
+            "keyName",
+            "privateIpAddress",
+            "publicIpAddress",
+            "state.Name",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_volumes",
+        "result_key": "Volumes",
+        "service": "ec2",
+        "fields": [
+            "volumeId",
+            "size",
+            "state",
+            "createTime",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_network_interfaces",
+        "result_key": "NetworkInterfaces",
+        "service": "ec2",
+        "fields": [
+            "networkInterfaceId",
+            "privateIpAddress",
+            "subnetId",
+            "vpcId",
+            "status",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_security_groups",
+        "result_key": "SecurityGroups",
+        "service": "ec2",
+        "fields": [
+            "groupId",
+            "groupName",
+            "vpcId",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_vpcs",
+        "result_key": "Vpcs",
+        "service": "ec2",
+        "fields": [
+            "vpcId",
+            "state",
+            "cidrBlock",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_subnets",
+        "result_key": "Subnets",
+        "service": "ec2",
+        "fields": [
+            "subnetId",
+            "state",
+            "cidrBlock",
+            "vpcId",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_route_tables",
+        "result_key": "RouteTables",
+        "service": "ec2",
+        "fields": [
+            "routeTableId",
+            "vpcId",
+            "routes",
+            "associations",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_internet_gateways",
+        "result_key": "InternetGateways",
+        "service": "ec2",
+        "fields": [
+            "internetGatewayId",
+            "attachments",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_nat_gateways",
+        "result_key": "NatGateways",
+        "service": "ec2",
+        "fields": [
+            "natGatewayId",
+            "subnetId",
+            "vpcId",
+            "state",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_network_acls",
+        "result_key": "NetworkAcls",
+        "service": "ec2",
+        "fields": [
+            "networkAclId",
+            "vpcId",
+            "entries",
+            "associations",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_account_attributes",
+        "result_key": "AccountAttributes",
+        "service": "ec2",
+        "fields": [
+            "attributeName",
+            "attributeValues"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_availability_zones",
+        "result_key": "AvailabilityZones",
+        "service": "ec2",
+        "fields": [
+            "zoneName",
+            "state",
+            "regionName",
+            "messages"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_regions",
+        "result_key": "Regions",
+        "service": "ec2",
+        "fields": [
+            "regionName",
+            "endpoint"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_db_instances",
+        "result_key": "DBInstances",
+        "service": "rds",
+        "fields": [
+            "dbInstanceIdentifier",
+            "dbInstanceClass",
+            "engine",
+            "endpoint",
+            "status",
+            "createdAt",
+            "vpcId",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_buckets",
+        "result_key": "Buckets",
+        "service": "s3",
+        "fields": [
+            "name",
+            "creationDate",
+            "region",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_clusters",
+        "result_key": "clusters",
+        "service": "eks",
+        "fields": [
+            "name",
+            "arn",
+            "status",
+            "version",
+            "vpcConfig",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_clusters",
+        "result_key": "clusterArns",
+        "service": "ecs",
+        "fields": [
+            "clusterName",
+            "clusterArn",
+            "status",
+            "runningTasksCount",
+            "pendingTasksCount",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_keys",
+        "result_key": "Keys",
+        "service": "kms",
+        "fields": [
+            "keyId",
+            "keyArn",
+            "creationDate",
+            "description",
+            "keyUsage",
+            "keyState",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_load_balancers",
+        "result_key": "LoadBalancers",
+        "service": "elbv2",
+        "fields": [
+            "loadBalancerName",
+            "loadBalancerArn",
+            "DNSName",
+            "scheme",
+            "vpcId",
+            "state",
+            "type",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_functions",
+        "result_key": "Functions",
+        "service": "lambda",
+        "fields": [
+            "functionName",
+            "functionArn",
+            "runtime",
+            "handler",
+            "memorySize",
+            "timeout",
+            "lastModified",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_tables",
+        "result_key": "TableNames",
+        "service": "dynamodb",
+        "fields": [
+            "tableName",
+            "tableArn",
+            "creationDateTime",
+            "itemCount",
+            "tableSizeBytes",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "describe_cache_clusters",
+        "result_key": "CacheClusters",
+        "service": "elasticache",
+        "fields": [
+            "cacheClusterId",
+            "engine",
+            "cacheNodeType",
+            "numCacheNodes",
+            "status",
+            "endpoint",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "function": "list_containers",
+        "result_key": "ContainerList",
+        "service": "mediastore",
+        "fields": [
+            "name",
+            "arn",
+            "creationTime",
+            "status",
+            "tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sqs",
+        "function": "list_queues",
+        "fields": [
+            "QueueUrl"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sqs",
+        "function": "get_queue_attributes",
+        "fields": [
+            "ApproximateNumberOfMessages",
+            "ApproximateNumberOfMessagesDelayed",
+            "ApproximateNumberOfMessagesNotVisible",
+            "CreatedTimestamp",
+            "LastModifiedTimestamp",
+            "VisibilityTimeout",
+            "MaximumMessageSize",
+            "MessageRetentionPeriod",
+            "QueueArn",
+            "DelaySeconds",
+            "ReceiveMessageWaitTimeSeconds"
+        ],
+        "parameters": {
+            "QueueUrl": "{QueueUrl}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sqs",
+        "function": "list_queue_tags",
+        "fields": [
+            "Tags"
+        ],
+        "parameters": {
+            "QueueUrl": "{QueueUrl}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sns",
+        "function": "list_topics",
+        "fields": [
+            "TopicArn"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sns",
+        "function": "get_topic_attributes",
+        "fields": [
+            "Owner",
+            "Policy",
+            "DisplayName",
+            "SubscriptionsConfirmed",
+            "SubscriptionsPending",
+            "SubscriptionsDeleted",
+            "EffectiveDeliveryPolicy",
+            "Tags"
+        ],
+        "parameters": {
+            "TopicArn": "{TopicArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sns",
+        "function": "list_subscriptions",
+        "fields": [
+            "SubscriptionArn",
+            "Owner",
+            "Protocol",
+            "Endpoint",
+            "TopicArn"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "sns",
+        "function": "get_subscription_attributes",
+        "fields": [
+            "SubscriptionArn",
+            "Owner",
+            "Protocol",
+            "Endpoint",
+            "TopicArn",
+            "EffectiveDeliveryPolicy"
+        ],
+        "parameters": {
+            "SubscriptionArn": "{SubscriptionArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "secretsmanager",
+        "function": "list_secrets",
+        "fields": [
+            "ARN",
+            "Name",
+            "Description",
+            "Tags",
+            "CreatedDate",
+            "LastAccessedDate"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "secretsmanager",
+        "function": "get_secret_value",
+        "fields": [
+            "SecretString",
+            "SecretBinary",
+            "VersionId",
+            "VersionStages",
+            "CreatedDate"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "secretsmanager",
+        "function": "list_secrets",
+        "fields": [
+            "ARN",
+            "Name",
+            "Description",
+            "Tags",
+            "CreatedDate",
+            "LastAccessedDate"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "secretsmanager",
+        "function": "get_secret_value",
+        "fields": [
+            "SecretString",
+            "SecretBinary",
+            "VersionId",
+            "VersionStages",
+            "CreatedDate"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "s3",
+        "function": "list_buckets",
+        "fields": [
+            "Name",
+            "CreationDate",
+            "Owner",
+            "Region",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "s3",
+        "function": "get_bucket_location",
+        "fields": [
+            "LocationConstraint"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "s3",
+        "function": "get_bucket_encryption",
+        "fields": [
+            "Rules"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "s3",
+        "function": "get_bucket_website",
+        "fields": [
+            "RedirectAllRequestsTo",
+            "IndexDocument",
+            "ErrorDocument",
+            "RoutingRules"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "s3",
+        "function": "get_bucket_tagging",
+        "fields": [
+            "TagSet"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "route53",
+        "function": "list_hosted_zones",
+        "fields": [
+            "Id",
+            "Name",
+            "CallerReference",
+            "Config",
+            "ResourceRecordSetCount",
+            "LinkedService",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "route53",
+        "function": "list_health_checks",
+        "fields": [
+            "Id",
+            "CallerReference",
+            "HealthCheckConfig",
+            "HealthCheckVersion",
+            "LinkedService",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "route53",
+        "function": "list_traffic_policies",
+        "fields": [
+            "Id",
+            "Name",
+            "Document",
+            "Type",
+            "Comment",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "route53",
+        "function": "list_traffic_policy_instances",
+        "fields": [
+            "Id",
+            "HostedZoneId",
+            "Name",
+            "TTL",
+            "State",
+            "TrafficPolicyId",
+            "TrafficPolicyVersion"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "route53",
+        "function": "list_traffic_policy_versions",
+        "fields": [
+            "TrafficPolicyId",
+            "Version",
+            "Document",
+            "Type",
+            "Comment"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "resource-groups",
+        "function": "list_groups",
+        "fields": [
+            "Name",
+            "GroupArn",
+            "Description",
+            "ResourceQuery",
+            "Tags",
+            "CreatedDate",
+            "UpdatedDate"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "resource-groups",
+        "function": "get_group",
+        "fields": [
+            "GroupName",
+            "GroupArn",
+            "Description",
+            "ResourceQuery",
+            "Tags",
+            "CreatedDate",
+            "UpdatedDate"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_clusters",
+        "fields": [
+            "ClusterIdentifier",
+            "NodeType",
+            "ClusterStatus",
+            "ClusterAvailabilityStatus",
+            "MasterUsername",
+            "DBName",
+            "VpcId",
+            "ClusterSubnetGroupName",
+            "ClusterParameterGroups",
+            "ClusterSecurityGroups",
+            "Endpoint",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_cluster_snapshots",
+        "fields": [
+            "SnapshotIdentifier",
+            "ClusterIdentifier",
+            "SnapshotType",
+            "Status",
+            "SnapshotCreateTime",
+            "Tags"
+        ],
+        "parameters": {
+            "ClusterIdentifier": "{ClusterIdentifier}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_cluster_subnet_groups",
+        "fields": [
+            "ClusterSubnetGroupName",
+            "Description",
+            "VpcId",
+            "SubnetGroupStatus",
+            "Subnets",
+            "Tags"
+        ],
+        "parameters": {
+            "ClusterSubnetGroupName": "{ResourceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_cluster_parameter_groups",
+        "fields": [
+            "ParameterGroupName",
+            "ParameterGroupFamily",
+            "Description",
+            "Tags"
+        ],
+        "parameters": {
+            "ClusterParameterGroups.ParameterGroupName": "{ResourceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_cluster_security_groups",
+        "fields": [
+            "ClusterSecurityGroupName",
+            "Description",
+            "EC2SecurityGroups",
+            "Tags"
+        ],
+        "parameters": {
+            "ClusterSecurityGroups.ClusterSecurityGroupName": "{ResourceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_clusters",
+        "fields": [
+            "ClusterIdentifier",
+            "NodeType",
+            "ClusterStatus",
+            "DBName",
+            "VpcId",
+            "ClusterSubnetGroupName",
+            "ClusterParameterGroups",
+            "ClusterSecurityGroups",
+            "Endpoint",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_data_shares",
+        "fields": [
+            "DataShareArn",
+            "ProducerArn",
+            "Status",
+            "AllowPublicAccess",
+            "ConsumerRegion"
+        ],
+        "parameters": {
+            "ClusterIdentifier": "{ClusterIdentifier}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_storage",
+        "fields": [
+            "ClusterIdentifier",
+            "TotalStorageCapacity",
+            "UsedStorageCapacity",
+            "FreeStorageCapacity"
+        ],
+        "parameters": {
+            "ClusterIdentifier": "{ClusterIdentifier}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "redshift",
+        "function": "describe_tags",
+        "fields": [
+            "ResourceName",
+            "Tags"
+        ],
+        "parameters": {
+            "ResourceName": "{ResourceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "rds",
+        "function": "describe_db_instances",
+        "fields": [
+            "DBInstanceIdentifier",
+            "DBInstanceArn",
+            "DBInstanceClass",
+            "Engine",
+            "EngineVersion",
+            "DBInstanceStatus",
+            "AvailabilityZone",
+            "VpcId",
+            "PubliclyAccessible",
+            "StorageType",
+            "AllocatedStorage",
+            "BackupRetentionPeriod",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "rds",
+        "function": "describe_db_clusters",
+        "fields": [
+            "DBClusterIdentifier",
+            "DBClusterArn",
+            "Status",
+            "Engine",
+            "EngineVersion",
+            "Endpoint",
+            "ReaderEndpoint",
+            "MultiAZ",
+            "StorageEncrypted",
+            "VpcId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "rds",
+        "function": "describe_db_snapshots",
+        "fields": [
+            "DBSnapshotIdentifier",
+            "DBSnapshotArn",
+            "DBInstanceIdentifier",
+            "SnapshotType",
+            "Status",
+            "StorageType",
+            "AllocatedStorage",
+            "VpcId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "rds",
+        "function": "describe_db_subnet_groups",
+        "fields": [
+            "DBSubnetGroupName",
+            "DBSubnetGroupDescription",
+            "VpcId",
+            "Subnets",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_clusters",
+        "fields": [
+            "ClusterName",
+            "ARN",
+            "Status",
+            "NodeType",
+            "NumberOfShards",
+            "NumberOfReplicasPerShard",
+            "EngineVersion",
+            "ClusterEndpoint",
+            "ClusterCreationTime",
+            "SubnetGroupName",
+            "SecurityGroupIds",
+            "ACLName",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_snapshots",
+        "fields": [
+            "SnapshotName",
+            "ARN",
+            "ClusterName",
+            "Status",
+            "SnapshotSource",
+            "SnapshotRetentionLimit",
+            "SnapshotCreationTime",
+            "Tags"
+        ],
+        "parameters": {
+            "ClusterName": "{ClusterName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_parameter_groups",
+        "fields": [
+            "ParameterGroupName",
+            "Family",
+            "Description",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_security_groups",
+        "fields": [
+            "Name",
+            "ARN",
+            "Description",
+            "Status",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_subnet_groups",
+        "fields": [
+            "Name",
+            "Description",
+            "Subnets",
+            "VpcId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_users",
+        "fields": [
+            "Name",
+            "Status",
+            "ACLNames",
+            "Authentication",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "describe_acls",
+        "fields": [
+            "Name",
+            "Status",
+            "ClusterNames",
+            "UserNames",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "memorydb",
+        "function": "list_tags_for_resource",
+        "fields": [
+            "ARN",
+            "Tags"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "lightsail",
+        "function": "get_instances",
+        "fields": [
+            "InstanceName",
+            "Arn",
+            "BlueprintId",
+            "BundleId",
+            "PrivateIpAddress",
+            "PublicIpAddress",
+            "State",
+            "CreatedAt",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "lightsail",
+        "function": "get_instance",
+        "fields": [
+            "InstanceName",
+            "Arn",
+            "BlueprintId",
+            "BundleId",
+            "CpuCount",
+            "RamSizeInGb",
+            "DiskSizeInGb",
+            "PrivateIpAddress",
+            "PublicIpAddress",
+            "State",
+            "CreatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "InstanceName": "{InstanceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "lightsail",
+        "function": "get_relational_databases",
+        "fields": [
+            "RelationalDatabaseName",
+            "Arn",
+            "Engine",
+            "EngineVersion",
+            "State",
+            "MasterUsername",
+            "PubliclyAccessible",
+            "CreatedAt",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "lightsail",
+        "function": "get_relational_database",
+        "fields": [
+            "RelationalDatabaseName",
+            "Arn",
+            "Engine",
+            "EngineVersion",
+            "MasterUsername",
+            "BackupRetentionEnabled",
+            "PubliclyAccessible",
+            "State",
+            "AllocatedStorageInGb",
+            "CpuCount",
+            "RamSizeInGb",
+            "CreatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "RelationalDatabaseName": "{RelationalDatabaseName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "lambda",
+        "function": "list_functions",
+        "fields": [
+            "FunctionName",
+            "FunctionArn",
+            "Runtime",
+            "Handler",
+            "MemorySize",
+            "Timeout",
+            "Role",
+            "LastModified",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "lambda",
+        "function": "get_function",
+        "fields": [
+            "Configuration.FunctionName",
+            "Configuration.FunctionArn",
+            "Configuration.Runtime",
+            "Configuration.Role",
+            "Configuration.Handler",
+            "Configuration.CodeSize",
+            "Configuration.Description",
+            "Configuration.Timeout",
+            "Configuration.MemorySize",
+            "Configuration.LastModified",
+            "Code.RepositoryType",
+            "Code.Location",
+            "Tags"
+        ],
+        "parameters": {
+            "FunctionArn": "{FunctionArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "kms",
+        "function": "list_keys",
+        "fields": [
+            "KeyId",
+            "KeyArn"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "kms",
+        "function": "get_key_policy",
+        "fields": [
+            "Policy"
+        ],
+        "parameters": {
+            "KeyId": "{KeyId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "grafana",
+        "function": "list_workspaces",
+        "fields": [
+            "WorkspaceId",
+            "WorkspaceName",
+            "Arn",
+            "Status",
+            "Created",
+            "Authentication",
+            "Endpoint",
+            "AccountAccessType",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "grafana",
+        "function": "describe_workspace",
+        "fields": [
+            "WorkspaceId",
+            "WorkspaceName",
+            "Arn",
+            "Status",
+            "Created",
+            "Modified",
+            "Authentication",
+            "Endpoint",
+            "AccountAccessType",
+            "OrganizationRoleName",
+            "DataSources",
+            "Tags"
+        ],
+        "parameters": {
+            "WorkspaceId": "{WorkspaceId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "glacier",
+        "function": "list_vaults",
+        "fields": [
+            "VaultName",
+            "VaultARN",
+            "CreationDate",
+            "LastInventoryDate",
+            "NumberOfArchives",
+            "SizeInBytes",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "glacier",
+        "function": "list_provisioned_capacity",
+        "fields": [
+            "CapacityId",
+            "StartDate",
+            "ExpirationDate"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "fsx",
+        "function": "describe_file_systems",
+        "fields": [
+            "FileSystemId",
+            "FileSystemType",
+            "Lifecycle",
+            "StorageCapacity",
+            "CreationTime",
+            "KmsKeyId",
+            "VpcId",
+            "SubnetIds",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "fsx",
+        "function": "describe_backups",
+        "fields": [
+            "BackupId",
+            "FileSystemId",
+            "Lifecycle",
+            "ProgressPercent",
+            "CreationTime",
+            "KmsKeyId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "fsx",
+        "function": "describe_volumes",
+        "fields": [
+            "VolumeId",
+            "FileSystemId",
+            "Lifecycle",
+            "VolumeType",
+            "SizeInBytes",
+            "CreationTime",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "fsx",
+        "function": "describe_storage_virtual_machines",
+        "fields": [
+            "StorageVirtualMachineId",
+            "FileSystemId",
+            "Lifecycle",
+            "Subtype",
+            "Endpoints",
+            "CreationTime",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "es",
+        "function": "list_domain_names",
+        "fields": [
+            "DomainName"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "es",
+        "function": "describe_elasticsearch_domain",
+        "fields": [
+            "DomainId",
+            "DomainName",
+            "ARN",
+            "ElasticsearchClusterConfig",
+            "EBSOptions",
+            "AccessPolicies",
+            "SnapshotOptions",
+            "AdvancedOptions",
+            "NodeToNodeEncryptionOptions",
+            "LogPublishingOptions",
+            "Tags"
+        ],
+        "parameters": {
+            "DomainName": "{DomainName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elasticbeanstalk",
+        "function": "describe_applications",
+        "fields": [
+            "ApplicationName",
+            "ApplicationArn",
+            "Description",
+            "DateCreated",
+            "DateUpdated",
+            "Versions",
+            "ConfigurationTemplates",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elasticbeanstalk",
+        "function": "describe_environments",
+        "fields": [
+            "EnvironmentName",
+            "EnvironmentArn",
+            "ApplicationName",
+            "VersionLabel",
+            "SolutionStackName",
+            "PlatformArn",
+            "Status",
+            "Health",
+            "Resources",
+            "DateCreated",
+            "DateUpdated",
+            "Tags"
+        ],
+        "parameters": {
+            "ApplicationName": "{ApplicationName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elbv2",
+        "function": "describe_load_balancers",
+        "fields": [
+            "LoadBalancerArn",
+            "LoadBalancerName",
+            "DNSName",
+            "CanonicalHostedZoneId",
+            "CreatedTime",
+            "LoadBalancerType",
+            "Scheme",
+            "VpcId",
+            "State",
+            "SecurityGroups",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elbv2",
+        "function": "describe_listeners",
+        "fields": [
+            "ListenerArn",
+            "Port",
+            "Protocol",
+            "SslPolicy",
+            "Certificates",
+            "DefaultActions"
+        ],
+        "parameters": {
+            "LoadBalancerArn": "{LoadBalancerArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elbv2",
+        "function": "describe_target_groups",
+        "fields": [
+            "TargetGroupArn",
+            "TargetGroupName",
+            "Protocol",
+            "Port",
+            "VpcId",
+            "HealthCheckProtocol",
+            "HealthCheckPort",
+            "HealthCheckPath",
+            "HealthCheckIntervalSeconds",
+            "HealthCheckTimeoutSeconds",
+            "HealthyThresholdCount",
+            "UnhealthyThresholdCount",
+            "Matcher",
+            "Tags"
+        ],
+        "parameters": {
+            "LoadBalancerArn": "{LoadBalancerArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elbv2",
+        "function": "describe_target_health",
+        "fields": [
+            "Target.Id",
+            "Target.Port",
+            "TargetHealth.State",
+            "TargetHealth.Description",
+            "TargetHealth.Reason"
+        ],
+        "parameters": {
+            "TargetGroupArn": "{TargetGroupArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elasticache",
+        "function": "describe_cache_clusters",
+        "fields": [
+            "CacheClusterId",
+            "Engine",
+            "EngineVersion",
+            "CacheNodeType",
+            "NumCacheNodes",
+            "CacheClusterStatus",
+            "PreferredAvailabilityZone",
+            "ReplicationGroupId",
+            "VpcId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elasticache",
+        "function": "describe_replication_groups",
+        "fields": [
+            "ReplicationGroupId",
+            "Status",
+            "PrimaryEndpoint",
+            "NodeGroups",
+            "SnapshottingClusterId",
+            "AutomaticFailover",
+            "MultiAZ",
+            "Tags"
+        ],
+        "parameters": {
+            "ReplicationGroupId": "{ReplicationGroupId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elasticache",
+        "function": "describe_cache_security_groups",
+        "fields": [
+            "CacheSecurityGroupName",
+            "Description",
+            "OwnerId",
+            "EC2SecurityGroups"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "elasticache",
+        "function": "list_tags_for_resource",
+        "fields": [
+            "ARN",
+            "Tags"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "eks",
+        "function": "list_clusters",
+        "fields": [
+            "ClusterName"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "eks",
+        "function": "describe_cluster",
+        "fields": [
+            "Name",
+            "Arn",
+            "Version",
+            "RoleArn",
+            "Status",
+            "CreatedAt",
+            "ResourcesVpcConfig",
+            "Logging",
+            "Tags"
+        ],
+        "parameters": {
+            "ClusterName": "{ClusterName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "eks",
+        "function": "list_nodegroups",
+        "fields": [
+            "NodegroupName"
+        ],
+        "parameters": {
+            "ClusterName": "{ClusterName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "eks",
+        "function": "describe_nodegroup",
+        "fields": [
+            "NodegroupName",
+            "NodegroupArn",
+            "ClusterName",
+            "Status",
+            "AmiType",
+            "ScalingConfig",
+            "InstanceTypes",
+            "CreatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "NodegroupName": "{NodegroupName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "eks",
+        "function": "list_fargate_profiles",
+        "fields": [
+            "FargateProfileName"
+        ],
+        "parameters": {
+            "ClusterName": "{ClusterName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "eks",
+        "function": "describe_fargate_profile",
+        "fields": [
+            "FargateProfileName",
+            "FargateProfileArn",
+            "ClusterName",
+            "Status",
+            "PodExecutionRoleArn",
+            "Selectors",
+            "CreatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "FargateProfileName": "{FargateProfileName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "efs",
+        "function": "describe_file_systems",
+        "fields": [
+            "FileSystemId",
+            "OwnerId",
+            "CreationTime",
+            "LifeCycleState",
+            "PerformanceMode",
+            "ThroughputMode",
+            "SizeInBytes",
+            "Encrypted",
+            "KmsKeyId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "list_tables",
+        "fields": [
+            "TableName"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "describe_table",
+        "fields": [
+            "TableName",
+            "TableArn",
+            "TableStatus",
+            "ProvisionedThroughput",
+            "KeySchema",
+            "ItemCount",
+            "TableSizeBytes",
+            "CreationDateTime",
+            "Tags"
+        ],
+        "parameters": {
+            "TableName": "{TableName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "list_global_tables",
+        "fields": [
+            "GlobalTableName"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "describe_global_table",
+        "fields": [
+            "GlobalTableName",
+            "GlobalTableArn",
+            "ReplicationGroup",
+            "CreationDateTime"
+        ],
+        "parameters": {
+            "GlobalTableName": "{GlobalTableName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "list_backups",
+        "fields": [
+            "BackupArn",
+            "BackupName",
+            "TableName",
+            "BackupStatus",
+            "BackupType",
+            "BackupCreationDateTime",
+            "BackupSizeBytes"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "describe_backup",
+        "fields": [
+            "BackupArn",
+            "BackupName",
+            "BackupStatus",
+            "BackupType",
+            "BackupCreationDateTime",
+            "BackupSizeBytes",
+            "TableName"
+        ],
+        "parameters": {
+            "BackupArn": "{BackupArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "list_restores",
+        "fields": [
+            "RestoreArn",
+            "TableName",
+            "RestoreDateTime",
+            "RestoreInProgress"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "dynamodb",
+        "function": "describe_continuous_backups",
+        "fields": [
+            "RestoreArn",
+            "TableName",
+            "ContinuousBackupsStatus",
+            "PointInTimeRecoveryStatus",
+            "RestoreDateTime",
+            "RestoreInProgress"
+        ],
+        "parameters": {
+            "RestoreArn": "{RestoreArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "config",
+        "function": "describe_config_rules",
+        "fields": [
+            "ConfigRuleName",
+            "ConfigRuleArn",
+            "ConfigRuleId",
+            "Description",
+            "Scope",
+            "Source",
+            "InputParameters",
+            "MaximumExecutionFrequency",
+            "ConfigRuleState",
+            "CreatedBy",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "config",
+        "function": "describe_configuration_recorders",
+        "fields": [
+            "Name",
+            "RoleARN",
+            "RecordingGroup"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "cloudtrail",
+        "function": "describe_trails",
+        "fields": [
+            "Name",
+            "TrailARN",
+            "HomeRegion",
+            "IsMultiRegionTrail",
+            "LogFileValidationEnabled",
+            "CloudWatchLogsRoleArn",
+            "CloudWatchLogsLogGroupArn",
+            "S3BucketName",
+            "S3KeyPrefix",
+            "KmsKeyId",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "cloudhsmv2",
+        "function": "describe_clusters",
+        "fields": [
+            "ClusterId",
+            "State",
+            "HsmType",
+            "SubnetMapping",
+            "VpcId",
+            "BackupPolicy",
+            "Certificates",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "cloudformation",
+        "function": "describe_stacks",
+        "fields": [
+            "StackName",
+            "StackId",
+            "Description",
+            "CreationTime",
+            "LastUpdatedTime",
+            "StackStatus",
+            "StackStatusReason",
+            "Outputs",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "batch",
+        "function": "describe_job_queues",
+        "fields": [
+            "JobQueueName",
+            "JobQueueArn",
+            "State",
+            "Status",
+            "Priority",
+            "ComputeEnvironmentOrder",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "batch",
+        "function": "describe_job_definitions",
+        "fields": [
+            "JobDefinitionName",
+            "JobDefinitionArn",
+            "Revision",
+            "Status",
+            "Type",
+            "ContainerProperties",
+            "RetryStrategy",
+            "Timeout",
+            "Tags"
+        ],
+        "parameters": {
+            "JobQueueArn": "{JobQueueArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "network-firewall",
+        "function": "list_firewalls",
+        "fields": [
+            "FirewallArn",
+            "FirewallName",
+            "FirewallPolicyArn",
+            "VpcId",
+            "SubnetMappings",
+            "DeleteProtection",
+            "FirewallStatus",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "network-firewall",
+        "function": "describe_firewall_policy",
+        "fields": [
+            "FirewallPolicyArn",
+            "FirewallPolicyName",
+            "StatelessRuleGroups",
+            "StatefulRuleGroups",
+            "Description",
+            "Tags"
+        ],
+        "parameters": {
+            "FirewallPolicyArn": "{FirewallPolicyArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "network-firewall",
+        "function": "describe_rule_group",
+        "fields": [
+            "RuleGroupArn",
+            "RuleGroupName",
+            "RuleGroupType",
+            "Capacity",
+            "RulesSource",
+            "Tags"
+        ],
+        "parameters": {
+            "StatelessRuleGroups.RuleGroupArn": "{RuleGroupArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "autoscaling",
+        "function": "describe_auto_scaling_groups",
+        "fields": [
+            "AutoScalingGroupName",
+            "AutoScalingGroupARN",
+            "LaunchConfigurationName",
+            "MinSize",
+            "MaxSize",
+            "DesiredCapacity",
+            "Instances",
+            "VPCZoneIdentifier",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "autoscaling",
+        "function": "describe_launch_configurations",
+        "fields": [
+            "LaunchConfigurationName",
+            "LaunchConfigurationARN",
+            "InstanceType",
+            "KeyName",
+            "SecurityGroups",
+            "UserData",
+            "ImageId",
+            "CreatedTime"
+        ],
+        "parameters": {
+            "LaunchConfigurationName": "{LaunchConfigurationName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apprunner",
+        "function": "list_services",
+        "fields": [
+            "ServiceArn",
+            "ServiceName",
+            "ServiceUrl",
+            "CreatedAt",
+            "UpdatedAt",
+            "Status",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apprunner",
+        "function": "describe_service",
+        "fields": [
+            "ServiceArn",
+            "ServiceName",
+            "ServiceUrl",
+            "SourceConfiguration",
+            "InstanceConfiguration",
+            "HealthCheckConfiguration",
+            "AutoScalingConfigurationSummary",
+            "EncryptionConfiguration",
+            "CreatedAt",
+            "UpdatedAt",
+            "Status",
+            "Tags"
+        ],
+        "parameters": {
+            "ServiceArn": "{ServiceArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigateway",
+        "function": "get_rest_apis",
+        "fields": [
+            "Id",
+            "Name",
+            "Description",
+            "CreatedDate",
+            "Version",
+            "Warnings",
+            "ApiKeySource",
+            "EndpointConfiguration",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigateway",
+        "function": "get_resources",
+        "fields": [
+            "Id",
+            "ParentId",
+            "Path",
+            "PathPart",
+            "ResourceMethods"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigateway",
+        "function": "get_stages",
+        "fields": [
+            "StageName",
+            "DeploymentId",
+            "Description",
+            "CreatedDate",
+            "LastUpdatedDate",
+            "MethodSettings",
+            "Variables",
+            "Tags"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigateway",
+        "function": "get_deployments",
+        "fields": [
+            "Id",
+            "CreatedDate",
+            "Description"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigateway",
+        "function": "get_usage_plans",
+        "fields": [
+            "Id",
+            "Name",
+            "Description",
+            "ApiStages",
+            "Quota",
+            "Throttle",
+            "Tags"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigatewayv2",
+        "function": "get_apis",
+        "fields": [
+            "ApiId",
+            "Name",
+            "ProtocolType",
+            "Description",
+            "Version",
+            "CreatedDate",
+            "RouteSelectionExpression",
+            "CorsConfiguration",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigatewayv2",
+        "function": "get_routes",
+        "fields": [
+            "RouteId",
+            "RouteKey",
+            "Target",
+            "AuthorizationType",
+            "AuthorizationScopes"
+        ],
+        "parameters": {
+            "ApiId": "{ApiId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigatewayv2",
+        "function": "get_stages",
+        "fields": [
+            "StageName",
+            "DeploymentId",
+            "Description",
+            "CreatedDate",
+            "LastUpdatedDate",
+            "AutoDeploy",
+            "RouteSettings",
+            "Tags"
+        ],
+        "parameters": {
+            "ApiId": "{ApiId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "apigatewayv2",
+        "function": "get_deployments",
+        "fields": [
+            "DeploymentId",
+            "CreatedDate",
+            "Description"
+        ],
+        "parameters": {
+            "ApiId": "{ApiId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "cloudfront",
+        "function": "list_distributions",
+        "fields": [
+            "Id",
+            "ARN",
+            "Status",
+            "LastModifiedTime",
+            "DomainName",
+            "OriginGroups",
+            "Origins",
+            "DefaultCacheBehavior",
+            "CacheBehaviors",
+            "PriceClass",
+            "Enabled",
+            "ViewerCertificate",
+            "Logging",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "cloudfront",
+        "function": "get_distribution_config",
+        "fields": [
+            "ETag",
+            "Id",
+            "ARN",
+            "Origins",
+            "OriginGroups",
+            "DefaultCacheBehavior",
+            "CacheBehaviors",
+            "Logging",
+            "ViewerCertificate",
+            "Restrictions",
+            "PriceClass",
+            "Enabled",
+            "WebACLId",
+            "Tags"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "cloudfront",
+        "function": "list_invalidations",
+        "fields": [
+            "Id",
+            "Status",
+            "CreateTime",
+            "InvalidationBatch"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "list_meshes",
+        "fields": [
+            "MeshName",
+            "MeshArn",
+            "CreatedAt",
+            "LastUpdatedAt",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "list_virtual_services",
+        "fields": [
+            "VirtualServiceName",
+            "VirtualServiceArn",
+            "CreatedAt",
+            "LastUpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "MeshName": "{MeshName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "describe_virtual_service",
+        "fields": [
+            "VirtualServiceName",
+            "VirtualServiceArn",
+            "Spec",
+            "Status",
+            "Tags"
+        ],
+        "parameters": {
+            "VirtualServiceName": "{VirtualServiceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "list_virtual_nodes",
+        "fields": [
+            "VirtualNodeName",
+            "VirtualNodeArn",
+            "CreatedAt",
+            "LastUpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "MeshName": "{MeshName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "describe_virtual_node",
+        "fields": [
+            "VirtualNodeName",
+            "VirtualNodeArn",
+            "Spec",
+            "Status",
+            "Tags"
+        ],
+        "parameters": {
+            "VirtualNodeName": "{VirtualNodeName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "list_virtual_routers",
+        "fields": [
+            "VirtualRouterName",
+            "VirtualRouterArn",
+            "CreatedAt",
+            "LastUpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "MeshName": "{MeshName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "describe_virtual_router",
+        "fields": [
+            "VirtualRouterName",
+            "VirtualRouterArn",
+            "Spec",
+            "Status",
+            "Tags"
+        ],
+        "parameters": {
+            "VirtualRouterName": "{VirtualRouterName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "list_routes",
+        "fields": [
+            "RouteName",
+            "RouteArn",
+            "CreatedAt",
+            "LastUpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "VirtualRouterName": "{MeshName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "appmesh",
+        "function": "describe_route",
+        "fields": [
+            "RouteName",
+            "RouteArn",
+            "Spec",
+            "Status",
+            "Tags"
+        ],
+        "parameters": {
+            "RouteName": "{RouteName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "wafv2",
+        "function": "list_web_acls",
+        "fields": [
+            "ARN",
+            "Name",
+            "Id",
+            "Description",
+            "Capacity",
+            "CloudWatchMetricsEnabled",
+            "SampledRequestsEnabled",
+            "ManagedByFirewallManager",
+            "CreatedAt",
+            "LastModifiedAt",
+            "Scope",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "wafv2",
+        "function": "get_web_acl",
+        "fields": [
+            "ARN",
+            "Name",
+            "Id",
+            "Description",
+            "Capacity",
+            "Rules",
+            "DefaultAction",
+            "VisibilityConfig",
+            "ManagedByFirewallManager",
+            "Tags"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "wafv2",
+        "function": "list_rule_groups",
+        "fields": [
+            "ARN",
+            "Name",
+            "Id",
+            "Capacity",
+            "Description",
+            "ManagedByFirewallManager",
+            "Tags"
+        ],
+        "parameters": {
+            "Scope": "{Scope}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "wafv2",
+        "function": "get_rule_group",
+        "fields": [
+            "ARN",
+            "Name",
+            "Id",
+            "Capacity",
+            "Rules",
+            "VisibilityConfig",
+            "ManagedByFirewallManager",
+            "Tags"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "wafv2",
+        "function": "list_ip_sets",
+        "fields": [
+            "ARN",
+            "Name",
+            "Id",
+            "Description",
+            "IPAddressVersion",
+            "Addresses",
+            "Tags"
+        ],
+        "parameters": {
+            "Scope": "{Scope}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "wafv2",
+        "function": "get_ip_set",
+        "fields": [
+            "ARN",
+            "Name",
+            "Id",
+            "IPAddressVersion",
+            "Addresses",
+            "Description",
+            "Tags"
+        ],
+        "parameters": {
+            "ARN": "{ARN}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf-regional",
+        "function": "list_web_acls",
+        "fields": [
+            "WebACLId",
+            "Name",
+            "MetricName",
+            "DefaultAction",
+            "Rules",
+            "WebACLArn",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf-regional",
+        "function": "get_web_acl",
+        "fields": [
+            "WebACLId",
+            "Name",
+            "MetricName",
+            "DefaultAction",
+            "Rules",
+            "WebACLArn",
+            "Tags"
+        ],
+        "parameters": {
+            "WebACLId": "{WebACLId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf-regional",
+        "function": "list_rules",
+        "fields": [
+            "RuleId",
+            "Name",
+            "MetricName",
+            "Predicates",
+            "RuleArn",
+            "Tags"
+        ],
+        "parameters": {
+            "WebACLId": "{RuleId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf-regional",
+        "function": "get_rule",
+        "fields": [
+            "RuleId",
+            "Name",
+            "MetricName",
+            "Predicates",
+            "RuleArn",
+            "Tags"
+        ],
+        "parameters": {
+            "RuleId": "{RuleId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf-regional",
+        "function": "list_ip_sets",
+        "fields": [
+            "IPSetId",
+            "Name",
+            "IPSetDescriptors",
+            "IPSetArn",
+            "Tags"
+        ],
+        "parameters": {
+            "WebACLId": "{RuleId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf-regional",
+        "function": "get_ip_set",
+        "fields": [
+            "IPSetId",
+            "Name",
+            "IPSetDescriptors",
+            "IPSetArn",
+            "Tags"
+        ],
+        "parameters": {
+            "IPSetId": "{IPSetId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "list_web_acls",
+        "fields": [
+            "WebACLId",
+            "Name",
+            "MetricName",
+            "DefaultAction",
+            "Rules",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "get_web_acl",
+        "fields": [
+            "WebACLId",
+            "Name",
+            "MetricName",
+            "DefaultAction",
+            "Rules",
+            "Tags"
+        ],
+        "parameters": {
+            "WebACLId": "{WebACLId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "list_rules",
+        "fields": [
+            "RuleId",
+            "Name",
+            "MetricName",
+            "Predicates",
+            "Tags"
+        ],
+        "parameters": {
+            "WebACLId": "{RuleId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "get_rule",
+        "fields": [
+            "RuleId",
+            "Name",
+            "MetricName",
+            "Predicates",
+            "Tags"
+        ],
+        "parameters": {
+            "RuleId": "{IPSetId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "list_ip_sets",
+        "fields": [
+            "IPSetId",
+            "Name",
+            "IPSetDescriptors",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "get_ip_set",
+        "fields": [
+            "IPSetId",
+            "Name",
+            "IPSetDescriptors",
+            "Tags"
+        ],
+        "parameters": {
+            "IPSetId": "{IPSetId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "list_byte_match_sets",
+        "fields": [
+            "ByteMatchSetId",
+            "Name",
+            "ByteMatchTuples",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "waf",
+        "function": "get_byte_match_set",
+        "fields": [
+            "ByteMatchSetId",
+            "Name",
+            "ByteMatchTuples",
+            "Tags"
+        ],
+        "parameters": {
+            "ByteMatchSetId": "{ByteMatchSetId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "ssm",
+        "function": "describe_instance_information",
+        "fields": [
+            "InstanceId",
+            "PingStatus",
+            "LastPingDateTime",
+            "AgentVersion",
+            "PlatformType",
+            "PlatformName",
+            "PlatformVersion",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "ssm",
+        "function": "describe_parameters",
+        "fields": [
+            "Name",
+            "Type",
+            "LastModifiedDate",
+            "LastModifiedUser",
+            "Description",
+            "Version",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "ssm",
+        "function": "get_parameter",
+        "fields": [
+            "Name",
+            "Type",
+            "Value",
+            "Version",
+            "LastModifiedDate",
+            "ARN",
+            "Description",
+            "Tags"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "ssm",
+        "function": "list_documents",
+        "fields": [
+            "Name",
+            "DocumentType",
+            "DocumentFormat",
+            "DocumentVersion",
+            "Owner",
+            "CreatedDate",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "ssm",
+        "function": "get_document",
+        "fields": [
+            "Name",
+            "DocumentType",
+            "Content",
+            "DocumentFormat",
+            "DocumentVersion",
+            "Owner",
+            "CreatedDate",
+            "Tags"
+        ],
+        "parameters": {
+            "Name": "{Name}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "ssm",
+        "function": "describe_maintenance_windows",
+        "fields": [
+            "WindowId",
+            "Name",
+            "Description",
+            "Enabled",
+            "Schedule",
+            "Duration",
+            "Cutoff",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "shield",
+        "function": "list_protections",
+        "fields": [
+            "Id",
+            "Name",
+            "ResourceArn",
+            "HealthCheckIds",
+            "ProtectionArn",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "shield",
+        "function": "describe_protection",
+        "fields": [
+            "Id",
+            "Name",
+            "ResourceArn",
+            "HealthCheckIds",
+            "ProtectionArn",
+            "Tags"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "shield",
+        "function": "list_attacks",
+        "fields": [
+            "AttackId",
+            "ResourceArn",
+            "StartTime",
+            "EndTime",
+            "AttackVectors",
+            "Counters"
+        ],
+        "parameters": {
+            "ResourceArn": "{ResourceArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "shield",
+        "function": "describe_attack",
+        "fields": [
+            "AttackId",
+            "ResourceArn",
+            "AttackVectors",
+            "Counters",
+            "StartTime",
+            "EndTime",
+            "AttackProperties"
+        ],
+        "parameters": {
+            "AttackId": "{AttackId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securitylake",
+        "function": "list_data_lakes",
+        "fields": [
+            "DataLakeArn",
+            "Region",
+            "Status",
+            "CreatedAt",
+            "UpdatedAt",
+            "RetentionSettings",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securitylake",
+        "function": "list_data_lake_sources",
+        "fields": [
+            "SourceType",
+            "SourceName",
+            "SourceStatus",
+            "DataLakeArn",
+            "SourceRegion",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "DataLakeArn": "{DataLakeArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securitylake",
+        "function": "get_data_lake_source",
+        "fields": [
+            "SourceName",
+            "SourceType",
+            "SourceStatus",
+            "SourceRegion",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "SourceName": "{SourceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securitylake",
+        "function": "list_log_sources",
+        "fields": [
+            "LogSourceType",
+            "LogSourceName",
+            "LogSourceStatus",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "DataLakeArn": "{DataLakeArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securitylake",
+        "function": "get_log_source",
+        "fields": [
+            "LogSourceName",
+            "LogSourceType",
+            "LogSourceStatus",
+            "Configuration",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "LogSourceName": "{LogSourceName}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securityhub",
+        "function": "get_enabled_standards",
+        "fields": [
+            "StandardsSubscriptionArn",
+            "StandardsArn",
+            "StandardsStatus",
+            "StandardsInput",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securityhub",
+        "function": "get_findings",
+        "fields": [
+            "Id",
+            "ProductArn",
+            "AwsAccountId",
+            "CreatedAt",
+            "UpdatedAt",
+            "Severity",
+            "Title",
+            "Description",
+            "Remediation",
+            "Compliance",
+            "Workflow",
+            "RecordState",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securityhub",
+        "function": "list_members",
+        "fields": [
+            "AccountId",
+            "MasterId",
+            "Email",
+            "MemberStatus",
+            "InvitedAt",
+            "UpdatedAt"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securityhub",
+        "function": "list_insights",
+        "fields": [
+            "InsightArn",
+            "Name",
+            "Filters",
+            "GroupByAttribute"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "securityhub",
+        "function": "get_insight_results",
+        "fields": [
+            "InsightArn",
+            "ResultValues"
+        ],
+        "parameters": {
+            "InsightArn": "{InsightArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "list_classification_jobs",
+        "fields": [
+            "JobId",
+            "Name",
+            "Description",
+            "JobStatus",
+            "JobType",
+            "CreatedAt",
+            "LastRunTime",
+            "S3JobDefinition",
+            "SamplingPercentage",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "describe_classification_job",
+        "fields": [
+            "JobId",
+            "Name",
+            "Description",
+            "JobStatus",
+            "JobType",
+            "S3JobDefinition",
+            "LastRunTime",
+            "CreatedAt",
+            "Statistics",
+            "SamplingPercentage",
+            "Tags"
+        ],
+        "parameters": {
+            "JobId": "{JobId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "list_findings",
+        "fields": [
+            "FindingId",
+            "AccountId",
+            "Severity",
+            "Type",
+            "CreatedAt",
+            "UpdatedAt",
+            "Title",
+            "Description",
+            "ResourcesAffected",
+            "Remediation",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "get_finding",
+        "fields": [
+            "FindingId",
+            "AccountId",
+            "Severity",
+            "Type",
+            "CreatedAt",
+            "UpdatedAt",
+            "Title",
+            "Description",
+            "ResourcesAffected",
+            "Remediation",
+            "Location",
+            "Tags"
+        ],
+        "parameters": {
+            "FindingId": "{FindingId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "list_members",
+        "fields": [
+            "AccountId",
+            "Arn",
+            "Email",
+            "InvitationId",
+            "InvitedAt",
+            "MasterAccountId",
+            "Status",
+            "UpdatedAt"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "list_custom_data_identifiers",
+        "fields": [
+            "Id",
+            "Name",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "macie2",
+        "function": "describe_custom_data_identifier",
+        "fields": [
+            "Id",
+            "Name",
+            "Description",
+            "Regex",
+            "Keywords",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "Id": "{Id}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurureviewer",
+        "function": "list_repositories",
+        "fields": [
+            "AssociationArn",
+            "AssociationId",
+            "RepositoryName",
+            "ProviderType",
+            "State",
+            "CreatedTimeStamp",
+            "LastUpdatedTimeStamp",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurureviewer",
+        "function": "describe_repository_association",
+        "fields": [
+            "AssociationArn",
+            "AssociationId",
+            "RepositoryName",
+            "ProviderType",
+            "State",
+            "CreatedTimeStamp",
+            "LastUpdatedTimeStamp",
+            "KMSKeyDetails",
+            "Tags"
+        ],
+        "parameters": {
+            "AssociationArn": "{AssociationArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurureviewer",
+        "function": "list_code_reviews",
+        "fields": [
+            "CodeReviewArn",
+            "Name",
+            "RepositoryName",
+            "Owner",
+            "State",
+            "Type",
+            "PullRequestId",
+            "CreatedTimeStamp",
+            "LastUpdatedTimeStamp",
+            "Metrics",
+            "Tags"
+        ],
+        "parameters": {
+            "AssociationArn": "{CodeReviewArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurureviewer",
+        "function": "describe_code_review",
+        "fields": [
+            "CodeReviewArn",
+            "Name",
+            "RepositoryName",
+            "Owner",
+            "State",
+            "Type",
+            "PullRequestId",
+            "Metrics",
+            "FindingsSummary",
+            "CreatedTimeStamp",
+            "LastUpdatedTimeStamp",
+            "Tags"
+        ],
+        "parameters": {
+            "CodeReviewArn": "{CodeReviewArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurusecurity",
+        "function": "list_scan_summaries",
+        "fields": [
+            "ScanName",
+            "ScanArn",
+            "Status",
+            "AnalysisType",
+            "RunId",
+            "CreatedAt",
+            "UpdatedAt",
+            "RepositoryName",
+            "SourceCodeType",
+            "Tags"
+        ],
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurusecurity",
+        "function": "get_scan",
+        "fields": [
+            "ScanName",
+            "ScanArn",
+            "Status",
+            "AnalysisType",
+            "RunId",
+            "RepositoryName",
+            "SourceCodeType",
+            "FindingsCount",
+            "Metrics",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "ScanArn": "{ScanArn}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurusecurity",
+        "function": "list_findings",
+        "fields": [
+            "FindingId",
+            "Title",
+            "Description",
+            "Severity",
+            "Status",
+            "FilePath",
+            "LineNumber",
+            "Recommendation",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "ScanArn": "{FindingId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    },
+    {
+        "service": "codegurusecurity",
+        "function": "get_finding",
+        "fields": [
+            "FindingId",
+            "Title",
+            "Description",
+            "Severity",
+            "Status",
+            "Recommendation",
+            "FilePath",
+            "LineNumber",
+            "Remediation",
+            "CreatedAt",
+            "UpdatedAt",
+            "Tags"
+        ],
+        "parameters": {
+            "FindingId": "{FindingId}"
+        },
+        "Frameworks": [
+            "SOC 2 Type 2",
+            "ISO 27001:2022",
+            "FedRAMP"
+        ]
+    }
+]
