@@ -19,10 +19,9 @@ jobs:
     - name: Configure AWS credentials with OIDC
       uses: aws-actions/configure-aws-credentials@v3
       with:
-        role-to-assume: arn:aws:iam::145023120730:role/elevated-standards
+        role-to-assume: arn:aws:iam::584643806776:role/cross_account_security_artifacts_dev
         role-session-name: evidencecollection
         aws-region: ${{ env.AWS_REGION }}
-
 
     - name: Verify code checkout
       run: |
