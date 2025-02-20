@@ -574,7 +574,7 @@
             "CreatedDate"
         ],
         "parameters": {
-            "ARN": "{ARN}"
+            "SecretId": "{ARN}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -641,7 +641,7 @@
             "LocationConstraint"
         ],
         "parameters": {
-            "Name": "{Name}"
+            "Bucket": "{Bucket}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -656,7 +656,7 @@
             "Rules"
         ],
         "parameters": {
-            "Name": "{Name}"
+            "Bucket": "{Bucket}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -674,7 +674,7 @@
             "RoutingRules"
         ],
         "parameters": {
-            "Name": "{Name}"
+            "Bucket": "{Bucket}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -689,7 +689,7 @@
             "TagSet"
         ],
         "parameters": {
-            "Name": "{Name}"
+            "Bucket": "{Bucket}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -777,6 +777,9 @@
             "Type",
             "Comment"
         ],
+        "parameters": {
+            "Id": "{Id}"
+        },
         "Frameworks": [
             "SOC 2 Type 2",
             "ISO 27001:2022",
@@ -814,7 +817,7 @@
             "UpdatedDate"
         ],
         "parameters": {
-            "Name": "{Name}"
+            "GroupName": "{GroupName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -895,7 +898,7 @@
             "Tags"
         ],
         "parameters": {
-            "ClusterParameterGroups.ParameterGroupName": "{ResourceName}"
+            "ParameterGroupName": "{ParameterGroupName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -913,7 +916,7 @@
             "Tags"
         ],
         "parameters": {
-            "ClusterSecurityGroups.ClusterSecurityGroupName": "{ResourceName}"
+            "ClusterSecurityGroupName": "{ClusterSecurityGroupName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -953,7 +956,7 @@
             "ConsumerRegion"
         ],
         "parameters": {
-            "ClusterIdentifier": "{ClusterIdentifier}"
+            "DataShareArn": "{DataShareArn}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1278,6 +1281,9 @@
             "CreatedAt",
             "Tags"
         ],
+        "parameters": {
+            "relationalDatabaseName": "{relationalDatabaseName}"
+        },
         "Frameworks": [
             "SOC 2 Type 2",
             "ISO 27001:2022",
@@ -1350,7 +1356,7 @@
             "Tags"
         ],
         "parameters": {
-            "FunctionArn": "{FunctionArn}"
+            "FunctionName": "{FunctionName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1496,6 +1502,9 @@
             "KmsKeyId",
             "Tags"
         ],
+        "parameters": {
+            "BackupArn": "{BackupArn}"
+        },
         "Frameworks": [
             "SOC 2 Type 2",
             "ISO 27001:2022",
@@ -1775,7 +1784,7 @@
             "Tags"
         ],
         "parameters": {
-            "ARN": "{ARN}"
+            "ResourceName": "{ARN}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1810,7 +1819,7 @@
             "Tags"
         ],
         "parameters": {
-            "ClusterName": "{ClusterName}"
+            "name": "{ClusterName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1825,7 +1834,7 @@
             "NodegroupName"
         ],
         "parameters": {
-            "ClusterName": "{ClusterName}"
+            "clusterName": "{ClusterName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1848,7 +1857,8 @@
             "Tags"
         ],
         "parameters": {
-            "NodegroupName": "{NodegroupName}"
+            "clusterName": "{ClusterName}",
+            "nodegroupName": "{NodegroupName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1863,7 +1873,7 @@
             "FargateProfileName"
         ],
         "parameters": {
-            "ClusterName": "{ClusterName}"
+            "clusterName": "{ClusterName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -1885,7 +1895,8 @@
             "Tags"
         ],
         "parameters": {
-            "FargateProfileName": "{FargateProfileName}"
+            "clusterName": "{ClusterName}",
+            "fargateProfileName": "{FargateProfileName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2045,7 +2056,7 @@
             "RestoreInProgress"
         ],
         "parameters": {
-            "RestoreArn": "{RestoreArn}"
+            "TableName": "{TableName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2242,7 +2253,7 @@
             "Tags"
         ],
         "parameters": {
-            "StatelessRuleGroups.RuleGroupArn": "{RuleGroupArn}"
+            "RuleGroupArn": "{RuleGroupArn}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2284,7 +2295,7 @@
             "CreatedTime"
         ],
         "parameters": {
-            "LaunchConfigurationName": "{LaunchConfigurationName}"
+            "LaunchConfigurationNames": []
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2367,7 +2378,7 @@
             "ResourceMethods"
         ],
         "parameters": {
-            "Id": "{Id}"
+            "restApiId": "{restApiId}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2389,7 +2400,7 @@
             "Tags"
         ],
         "parameters": {
-            "Id": "{Id}"
+            "restApiId": "{restApiId}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2406,7 +2417,7 @@
             "Description"
         ],
         "parameters": {
-            "Id": "{Id}"
+            "restApiId": "{restApiId}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2576,7 +2587,7 @@
             "InvalidationBatch"
         ],
         "parameters": {
-            "Id": "{Id}"
+            "DistributionId": "{DistributionId}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2611,7 +2622,7 @@
             "Tags"
         ],
         "parameters": {
-            "MeshName": "{MeshName}"
+            "meshName": "{meshName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2630,7 +2641,8 @@
             "Tags"
         ],
         "parameters": {
-            "VirtualServiceName": "{VirtualServiceName}"
+            "meshName": "{meshName}",
+            "virtualServiceName": "{virtualServiceName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2668,7 +2680,8 @@
             "Tags"
         ],
         "parameters": {
-            "VirtualNodeName": "{VirtualNodeName}"
+            "meshName": "{meshName}",
+            "virtualNodeName": "{virtualNodeName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2706,7 +2719,8 @@
             "Tags"
         ],
         "parameters": {
-            "VirtualRouterName": "{VirtualRouterName}"
+            "meshName": "{meshName}",
+            "virtualRouterName": "{virtualRouterName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2744,7 +2758,9 @@
             "Tags"
         ],
         "parameters": {
-            "RouteName": "{RouteName}"
+            "meshName": "{meshName}",
+            "virtualRouterName": "{virtualRouterName}",
+            "routeName": "{routeName}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2769,6 +2785,9 @@
             "Scope",
             "Tags"
         ],
+        "parameters": {
+            "Scope": "REGIONAL"
+        },
         "Frameworks": [
             "SOC 2 Type 2",
             "ISO 27001:2022",
@@ -2791,7 +2810,9 @@
             "Tags"
         ],
         "parameters": {
-            "ARN": "{ARN}"
+            "Name": "{Name}",
+            "Scope": "{Scope}",
+            "Id": "{Id}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2937,7 +2958,8 @@
             "Tags"
         ],
         "parameters": {
-            "WebACLId": "{RuleId}"
+            "NextMarker": "{NextMarker}",
+            "Limit": 50
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -2976,7 +2998,8 @@
             "Tags"
         ],
         "parameters": {
-            "WebACLId": "{RuleId}"
+            "NextMarker": "{NextMarker}",
+            "Limit": 50
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -3053,7 +3076,8 @@
             "Tags"
         ],
         "parameters": {
-            "WebACLId": "{RuleId}"
+            "NextMarker": "{NextMarker}",
+            "Limit": 50
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -3105,7 +3129,9 @@
             "Tags"
         ],
         "parameters": {
-            "IPSetId": "{IPSetId}"
+            "Name": "{Name}",
+            "Scope": "{Scope}",
+            "Id": "{Id}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -3293,7 +3319,7 @@
             "Tags"
         ],
         "parameters": {
-            "Id": "{Id}"
+            "ProtectionId": "{ProtectionId}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -3415,7 +3441,8 @@
             "Tags"
         ],
         "parameters": {
-            "DataLakeArn": "{DataLakeArn}"
+            "accounts": [],
+            "regions": []
         },
         "Frameworks": [
             "SOC 2 Type 2",
@@ -3570,7 +3597,7 @@
             "Tags"
         ],
         "parameters": {
-            "JobId": "{JobId}"
+            "jobId": "{jobId}"
         },
         "Frameworks": [
             "SOC 2 Type 2",
